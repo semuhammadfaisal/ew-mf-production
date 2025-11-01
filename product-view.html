@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - MF Production</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/improved-cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .product-detail {
+            padding: 40px 0;
+            background: #f8f9fa;
+        }
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .main-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 20px;
+        }
+        .product-category {
+            color: #C6A664;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .product-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .stars {
+            color: #ffc107;
+        }
+        .product-price {
+            margin-bottom: 25px;
+        }
+        .current-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #C6A664;
+        }
+        .original-price {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+        .product-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .btn-add-cart {
+            flex: 1;
+            padding: 15px 25px;
+            background: #C6A664;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-add-cart:hover {
+            background: #B8985A;
+            transform: translateY(-2px);
+        }
+        .btn-wishlist {
+            padding: 15px;
+            background: transparent;
+            border: 2px solid #C6A664;
+            color: #C6A664;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-wishlist:hover {
+            background: #C6A664;
+            color: white;
+        }
+        .product-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .meta-item i {
+            color: #C6A664;
+            width: 20px;
+        }
+        @media (max-width: 768px) {
+            .product-detail-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .product-title {
+                font-size: 24px;
+            }
+            .current-price {
+                font-size: 24px;
+            }
+            .product-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <section class="product-detail">
+        <div class="product-detail-container">
+            <div class="product-images">
+                <div class="main-image">
+                    <img id="productImage" src="" alt="Product Image">
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <div class="product-category" id="productCategory"></div>
+                <h1 class="product-title" id="productTitle">Loading...</h1>
+                
+                <div class="product-rating">
+                    <div class="stars" id="productStars"></div>
+                    <span id="productRating">0</span>
+                    <span>(<span id="productReviews">0</span> reviews)</span>
+                </div>
+                
+                <div class="product-price">
+                    <span class="current-price" id="productPrice">Rs. 0</span>
+                    <span class="original-price" id="productOriginalPrice" style="display: none;"></span>
+                </div>
+                
+                <p class="product-description" id="productDescription">Loading product details...</p>
+                
+                <div class="product-actions">
+                    <button class="btn-add-cart" onclick="addToCart()">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="btn-wishlist" onclick="addToWishlist()">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-box"></i>
+                        <span><span id="productStock">0</span> in stock</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Free shipping</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-undo-alt"></i>
+                        <span>7-day returns</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Quality guaranteed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    
+    <script>
+        let currentProduct = null;
+
+        async function loadProduct() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
+            if (!productId) {
+                window.location.href = 'products.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/products/${productId}`);
+                if (response.ok) {
+                    currentProduct = await response.json();
+                    displayProduct(currentProduct);
+                } else {
+                    throw new Error('Product not found');
+                }
+            } catch (error) {
+                console.error('Error loading product:', error);
+                document.querySelector('.product-detail-container').innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: #ff6b35; margin-bottom: 20px;"></i>
+                        <h2>Product Not Found</h2>
+                        <p>The product you're looking for doesn't exist or has been removed.</p>
+                        <button class="btn btn-primary" onclick="window.location.href='products.html'">
+                            <i class="fas fa-arrow-left"></i> Back to Products
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function displayProduct(product) {
+            document.getElementById('productImage').src = product.image;
+            document.getElementById('productImage').alt = product.name;
+            document.getElementById('productCategory').textContent = getCategoryName(product.category);
+            document.getElementById('productTitle').textContent = product.name;
+            document.getElementById('productStars').innerHTML = generateStars(product.rating || 4);
+            document.getElementById('productRating').textContent = product.rating || 4;
+            document.getElementById('productReviews').textContent = product.reviews || 0;
+            document.getElementById('productPrice').textContent = `Rs. ${product.price.toLocaleString()}`;
+            
+            if (product.originalPrice) {
+                document.getElementById('productOriginalPrice').textContent = `Rs. ${product.originalPrice.toLocaleString()}`;
+                document.getElementById('productOriginalPrice').style.display = 'inline';
+            }
+            
+            document.getElementById('productDescription').textContent = product.description;
+            document.getElementById('productStock').textContent = product.stock || 10;
+            
+            document.title = `${product.name} - MF Production`;
+        }
+
+        function getCategoryName(category) {
+            const categoryNames = {
+                'electronics': 'Electronics',
+                'men': "Men's Fashion",
+                'women': "Women's Fashion",
+                'perfumes': 'Perfumes'
+            };
+            return categoryNames[category] || category;
+        }
+
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        function addToCart() {
+            if (!currentProduct) return;
+            
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let found = cart.find(item => item.id === currentProduct._id);
+            
+            if (found) {
+                found.quantity++;
+            } else {
+                cart.push({
+                    id: currentProduct._id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    image: currentProduct.image,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('✓ Added to cart!');
+        }
+
+        function addToWishlist() {
+            if (!currentProduct) return;
+            
+            let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+            let found = wishlist.find(item => item.id === currentProduct._id);
+            
+            if (found) {
+                alert('Already in wishlist!');
+            } else {
+                wishlist.push(currentProduct);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                alert('✓ Added to wishlist!');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProduct);
+    </script>
+</body>
+</html>

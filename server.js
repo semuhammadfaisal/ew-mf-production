@@ -62,6 +62,10 @@ app.get('/admin', (req, res) => {
   res.redirect('/admin/login.html');
 });
 
+app.get('/product-view.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'product-view.html'));
+});
+
 app.get('*.html', (req, res) => {
   res.sendFile(path.join(__dirname, req.path));
 });
