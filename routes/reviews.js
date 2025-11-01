@@ -3,6 +3,25 @@ const router = express.Router();
 const Review = require('../models/Review');
 const Product = require('../models/Product');
 
+// Get all approved reviews
+router.get('/', async (req, res) => {
+  try {
+    const reviews = await Review.find({ isApproved: true })
+      .populate('productId', 'name')
+      .sort({ createdAt: -1 })
+      .limit(50);
+    
+    const reviewsWithProductName = reviews.map(review => ({
+      ...review.toObject(),
+      productName: review.productId ? review.productId.name : 'Unknown Product'
+    }));
+    
+    res.json(reviewsWithProductName);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // Get reviews for a product
 router.get('/product/:productId', async (req, res) => {
   try {
