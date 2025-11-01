@@ -221,7 +221,7 @@
                 <div class="content-card">
                     <h3 style="margin-bottom: 20px;"><i class="fas fa-clock"></i> Quick Actions</h3>
                     <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <button class="btn btn-primary" onclick="showSection('products'); setTimeout(function() { openAddProductModal(); }, 100);">
+                        <button class="btn btn-primary" onclick="showSection('products')" id="addProductBtn">
                             <i class="fas fa-plus"></i> Add New Product
                         </button>
                         <button class="btn btn-secondary" onclick="showSection('orders')">
@@ -1464,6 +1464,17 @@
         
         // Initialize dashboard
         loadDashboardFromAPI();
+        
+        // Add event listener for add product button
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.id === 'addProductBtn') {
+                setTimeout(function() {
+                    if (typeof openAddProductModal === 'function') {
+                        openAddProductModal();
+                    }
+                }, 100);
+            }
+        });
         
         // Mobile menu functionality
         function toggleMobileMenu() {
