@@ -43,17 +43,21 @@ app.get('/', (req, res) => {
 module.exports = app;
 
 const PORT = process.env.PORT || 3000;
-const server = app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-}).on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    console.error(`Port ${PORT} is already in use. Please stop the existing server or use a different port.`);
-    console.error('You can kill the existing process or change the PORT in your .env file.');
-  } else {
-    console.error('Server error:', err);
-  }
-  process.exit(1);
-});
+
+// Only start server if not in Vercel environment
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  }).on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`Port ${PORT} is already in use. Please stop the existing server or use a different port.`);
+      console.error('You can kill the existing process or change the PORT in your .env file.');
+    } else {
+      console.error('Server error:', err);
+    }
+    process.exit(1);
+  });
+}
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
