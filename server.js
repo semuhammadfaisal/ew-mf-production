@@ -50,8 +50,16 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/admin/login.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin', 'login.html'));
+});
+
 app.get('/admin/dashboard.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin', 'dashboard.html'));
+});
+
+app.get('/admin', (req, res) => {
+  res.redirect('/admin/login.html');
 });
 
 app.get('*.html', (req, res) => {
