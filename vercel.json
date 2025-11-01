@@ -20,12 +20,20 @@
     {
       "src": "*.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "admin/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/(css|js|assets)/(.*)",
       "dest": "/$1/$2"
+    },
+    {
+      "src": "/admin/dashboard.html",
+      "dest": "/admin/dashboard.html"
     },
     {
       "src": "/(.*\\.html)",
