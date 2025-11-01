@@ -6,9 +6,9 @@ let products = [];
 // Load products from API
 async function loadProducts(filters = {}) {
     try {
-        // Check if API is available
-        if (typeof API !== 'undefined') {
-            const apiProducts = await API.getProducts(filters);
+        const response = await fetch('/api/products');
+        if (response.ok) {
+            const apiProducts = await response.json();
             // Map MongoDB _id to id for frontend compatibility
             products = apiProducts.map(product => ({
                 ...product,
@@ -17,7 +17,7 @@ async function loadProducts(filters = {}) {
             console.log('Products loaded from API:', products.length);
             return products;
         } else {
-            throw new Error('API not available');
+            throw new Error('API response not ok');
         }
     } catch (error) {
         console.error('Error loading products:', error);
