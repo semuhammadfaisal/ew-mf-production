@@ -645,7 +645,7 @@
             });
             
             // Load products for bestsellers section
-            fetch('http://localhost:5000/api/products')
+            fetch('/api/products')
                 .then(response => response.json())
                 .then(products => {
                     window.allProducts = products; // Store globally
