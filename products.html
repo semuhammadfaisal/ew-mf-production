@@ -169,7 +169,7 @@
         // Load products and setup filters
         async function loadProductsWithFilters() {
             try {
-                const response = await fetch('http://localhost:5000/api/products');
+                const response = await fetch('/api/products');
                 allProducts = await response.json();
                 filteredProducts = [...allProducts];
                 displayFilteredProducts();
