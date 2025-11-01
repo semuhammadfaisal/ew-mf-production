@@ -22,7 +22,7 @@ git commit -m "Deploy to production"
 git push heroku main
 ```
 
-### 2. Vercel
+### 2. Vercel (Fixed Configuration)
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -30,8 +30,11 @@ npm i -g vercel
 # Deploy
 vercel --prod
 
-# Set environment variables in Vercel dashboard
+# Set environment variables in Vercel dashboard:
+# MONGODB_URI, JWT_SECRET, NODE_ENV=production
 ```
+
+**Note**: If Vercel still fails, use Heroku (more reliable for Express apps)
 
 ### 3. Railway
 1. Connect GitHub repository to Railway
