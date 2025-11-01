@@ -8,8 +8,8 @@ function loadNavbar() {
                     <span class="promo-text">🎉 Grand Opening Sale - Up to 50% OFF!</span>
                 </div>
                 <div class="top-bar-right">
-                    <a href="tel:+923001234567" class="contact-link">
-                        <i class="fas fa-phone"></i> +92 300 1234567
+                    <a href="tel:+923110849559" class="contact-link">
+                        <i class="fas fa-phone"></i> +92 311 084 9559
                     </a>
                     <span class="divider">|</span>
                     <a href="mailto:support@mfproduction.com" class="contact-link">
