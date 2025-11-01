@@ -669,6 +669,9 @@
             document.getElementById('productImage').src = product.image;
             document.getElementById('productImage').alt = product.name;
             
+            // Setup image gallery
+            setupImageGallery(product);
+            
             // Product badges
             const badges = [];
             if (product.new) badges.push('<span class="badge badge-new">New</span>');
@@ -728,6 +731,42 @@
             }
             
             return stars;
+        }
+
+        function setupImageGallery(product) {
+            const thumbnailGallery = document.getElementById('thumbnailGallery');
+            const mainImage = document.getElementById('productImage');
+            
+            // Create array of all product images
+            const allImages = [product.image];
+            if (product.images && product.images.length > 0) {
+                allImages.push(...product.images);
+            }
+            
+            // Remove duplicates
+            const uniqueImages = [...new Set(allImages)];
+            
+            if (uniqueImages.length > 1) {
+                thumbnailGallery.innerHTML = uniqueImages.map((img, index) => `
+                    <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeMainImage('${img}', this)">
+                        <img src="${img}" alt="Product image ${index + 1}" onerror="this.parentElement.style.display='none'">
+                    </div>
+                `).join('');
+            } else {
+                thumbnailGallery.style.display = 'none';
+            }
+        }
+        
+        function changeMainImage(imageSrc, thumbnailElement) {
+            const mainImage = document.getElementById('productImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Update main image
+            mainImage.src = imageSrc;
+            
+            // Update active thumbnail
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnailElement.classList.add('active');
         }
 
         function changeQuantity(change) {
