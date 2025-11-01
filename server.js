@@ -10,7 +10,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname)));
+
+// Serve static files with proper headers
+app.use(express.static(path.join(__dirname), {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css');
+    }
+    if (path.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript');
+    }
+  }
+}));
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
@@ -34,9 +45,26 @@ app.use('/api/reviews', require('./routes/reviews'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/admin', require('./routes/admin'));
 
-// Serve static files
+// Serve HTML files
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('*.html', (req, res) => {
+  res.sendFile(path.join(__dirname, req.path));
+});
+
+// Serve static assets
+app.get('/css/*', (req, res) => {
+  res.sendFile(path.join(__dirname, req.path));
+});
+
+app.get('/js/*', (req, res) => {
+  res.sendFile(path.join(__dirname, req.path));
+});
+
+app.get('/assets/*', (req, res) => {
+  res.sendFile(path.join(__dirname, req.path));
 });
 
 // Export for Vercel
