@@ -719,7 +719,7 @@
                         <td><span class="status-badge status-${product.isActive !== false ? 'active' : 'inactive'}">${product.isActive !== false ? 'Active' : 'Inactive'}</span></td>
                         <td>
                             <button class="btn-icon" onclick="editProduct('${product._id}')" title="Edit"><i class="fas fa-edit"></i></button> 
-                            <button class="btn-icon" onclick="deleteProduct('${product._id}', '${product.name}')" title="Delete"><i class="fas fa-trash"></i></button>
+                            <button class="btn-icon delete-product" data-id="${product._id}" data-name="${product.name}" title="Delete"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                 `).join('');
@@ -1465,7 +1465,7 @@
         // Initialize dashboard
         loadDashboardFromAPI();
         
-        // Add event listener for add product button
+        // Add event listeners
         document.addEventListener('click', function(e) {
             if (e.target && e.target.id === 'addProductBtn') {
                 setTimeout(function() {
@@ -1473,6 +1473,16 @@
                         openAddProductModal();
                     }
                 }, 100);
+            }
+            
+            // Handle delete product button
+            if (e.target && e.target.closest('.delete-product')) {
+                const btn = e.target.closest('.delete-product');
+                const productId = btn.dataset.id;
+                const productName = btn.dataset.name;
+                if (productId && productName) {
+                    deleteProduct(productId, productName);
+                }
             }
         });
         
