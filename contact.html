@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact MF Production - Get in touch with us">
+    <title>Contact Us - MF Production</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- NAVBAR -->
+    <div id="navbar-container"></div>
+
+    <!-- HERO -->
+    <section class="hero-section" style="padding: 60px 0;">
+        <div class="container">
+            <div style="text-align: center;">
+                <h1 style="font-size: 48px; margin-bottom: 20px;">Get in Touch</h1>
+                <p style="font-size: 20px; opacity: 0.95; max-width: 700px; margin: 0 auto;">
+                    We'd love to hear from you. Have questions, feedback, or need help with an order?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT INFO CARDS -->
+    <section style="padding: 80px 0; background: white;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px;">
+                <div class="card" style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-100); color: var(--primary-600); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 style="font-size: 20px; margin-bottom: 10px;">Visit Us</h3>
+                    <p style="color: var(--neutral-600);">123 Main Street, Karachi, Pakistan</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-100); color: var(--primary-600); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px;">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 style="font-size: 20px; margin-bottom: 10px;">Call Us</h3>
+                    <a href="tel:+923001234567" style="color: var(--neutral-600);">+92 300 1234567</a>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-100); color: var(--primary-600); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px;">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 style="font-size: 20px; margin-bottom: 10px;">Email Us</h3>
+                    <a href="mailto:support@mfproduction.com" style="color: var(--neutral-600);">support@mfproduction.com</a>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-100); color: var(--primary-600); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 style="font-size: 20px; margin-bottom: 10px;">Working Hours</h3>
+                    <p style="color: var(--neutral-600); font-size: 14px;">Mon-Sat: 9AM-8PM<br>Sun: 10AM-6PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM & MAP -->
+    <section style="padding: 80px 0; background: var(--neutral-50);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+                <!-- FORM -->
+                <div class="card">
+                    <h2 style="font-size: 28px; margin-bottom: 30px;">Send Us a Message</h2>
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;">
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px;">Your Name *</label>
+                            <input type="text" id="name" required 
+                                   style="width: 100%; padding: 12px; border: 2px solid var(--neutral-300); border-radius: 8px; font-size: 16px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px;">Email Address *</label>
+                            <input type="email" id="email" required 
+                                   style="width: 100%; padding: 12px; border: 2px solid var(--neutral-300); border-radius: 8px; font-size: 16px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px;">Subject *</label>
+                            <input type="text" id="subject" required 
+                                   style="width: 100%; padding: 12px; border: 2px solid var(--neutral-300); border-radius: 8px; font-size: 16px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px;">Message *</label>
+                            <textarea id="message" required rows="5" 
+                                      style="width: 100%; padding: 12px; border: 2px solid var(--neutral-300); border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                    <div id="formMessage" style="margin-top: 20px; padding: 15px; border-radius: 8px; display: none;"></div>
+                </div>
+
+                <!-- MAP & SOCIAL -->
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    <!-- MAP -->
+                    <div class="card" style="padding: 0; height: 350px; overflow: hidden;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.276837574288!2d67.0099!3d24.8615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDUxJzQxLjQiTiA2N8KwMDAnMzUuNiJF!5e0!3m2!1sen!2s!4v1234567890"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+
+                    <!-- SOCIAL MEDIA -->
+                    <div class="card">
+                        <h3 style="font-size: 22px; margin-bottom: 15px;">Connect With Us</h3>
+                        <p style="color: var(--neutral-600); margin-bottom: 20px;">
+                            Follow us on social media for updates, offers, and more!
+                        </p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <a href="https://facebook.com" class="btn" style="background: #1877f2; color: white; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </a>
+                            <a href="https://instagram.com" class="btn" style="background: #e4405f; color: white; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            <a href="https://twitter.com" class="btn" style="background: #1da1f2; color: white; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
+                            <a href="https://wa.me/923001234567" class="btn" style="background: #25d366; color: white; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- FAQ LINK -->
+                    <div class="card" style="background: var(--primary-50); border: 2px solid var(--primary-200);">
+                        <h3 style="font-size: 22px; margin-bottom: 10px;">Need Quick Answers?</h3>
+                        <p style="color: var(--neutral-600); margin-bottom: 15px;">
+                            Check out our FAQ section for instant solutions to common questions.
+                        </p>
+                        <a href="#" class="btn btn-primary">View FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Store in localStorage
+            let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+            messages.push(formData);
+            localStorage.setItem('contactMessages', JSON.stringify(messages));
+            
+            // Show success message
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.style.display = 'block';
+            messageDiv.style.background = '#d1fae5';
+            messageDiv.style.color = '#065f46';
+            messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

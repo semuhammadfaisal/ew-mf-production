@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - MF Production</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <div id="navbar-container"></div>
+
+    <section class="products-section" style="padding-top: 120px;">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-left">
+                    <h2>My Wishlist</h2>
+                    <p id="wishlistCount">Loading wishlist...</p>
+                </div>
+            </div>
+
+            <div class="products-container">
+                <div class="product-grid" id="wishlistGrid">
+                    <!-- Wishlist items loaded via JS -->
+                </div>
+
+                <div id="emptyWishlist" class="no-products">
+                    <div class="no-products-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Your Wishlist is Empty</h3>
+                    <p>Add products you love to your wishlist</p>
+                    <a href="products.html" class="btn btn-primary">Browse Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        function loadWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+            const wishlistGrid = document.getElementById('wishlistGrid');
+            const emptyWishlist = document.getElementById('emptyWishlist');
+            const countElement = document.getElementById('wishlistCount');
+
+            countElement.textContent = `${wishlist.length} items in wishlist`;
+
+            if (wishlist.length === 0) {
+                wishlistGrid.style.display = 'none';
+                emptyWishlist.style.display = 'flex';
+            } else {
+                wishlistGrid.style.display = 'grid';
+                emptyWishlist.style.display = 'none';
+                displayWishlistProducts(wishlist);
+            }
+        }
+
+        function displayWishlistProducts(wishlistItems) {
+            const container = document.getElementById('wishlistGrid');
+            
+            container.innerHTML = wishlistItems.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        <div class="product-badges">
+                            ${product.new ? '<span class="badge badge-new">NEW</span>' : ''}
+                            ${product.originalPrice ? '<span class="badge badge-sale">SALE</span>' : ''}
+                            ${product.bestseller ? '<span class="badge badge-bestseller">BESTSELLER</span>' : ''}
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn" onclick="removeFromWishlist(${product.id})" title="Remove from Wishlist">
+                                <i class="fas fa-heart" style="color: #ff4757;"></i>
+                            </button>
+                            <button class="action-btn" onclick="viewProduct(${product.id})" title="Quick View">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <button class="quick-add" onclick="addToCart(${product.id})">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">${getCategoryName(product.category)}</p>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-rating">
+                            <div class="stars">${generateStars(product.rating)}</div>
+                            <span class="rating-text">${product.rating}</span>
+                            <span class="review-count">(${product.reviews} reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">Rs. ${product.price.toLocaleString()}</span>
+                            ${product.originalPrice ? `<span class="original-price">Rs. ${product.originalPrice.toLocaleString()}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function removeFromWishlist(productId) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+            wishlist = wishlist.filter(item => item.id !== productId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            
+            showNotification('Removed from wishlist!', 'info');
+            loadWishlist();
+            updateWishlistIcon();
+        }
+
+        // Load wishlist on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWishlist();
+        });
+    </script>
+</body>
+</html>

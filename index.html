@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MF Production - Your trusted destination for electronics, fashion, and perfumes in Pakistan">
+    <title>MF Production - Shop Electronics, Fashion & Perfumes</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/improved-cards.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    
+    <!-- NAVBAR (Loaded via JS) -->
+    <div id="navbar-container"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-crown"></i>
+                        <span>Trusted Store</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Premium
+                        <span class="highlight">Electronics, Fashion & Fragrances</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Quality products delivered nationwide. Shop electronics, fashion & perfumes.
+                    </p>
+                    
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Free Shipping</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Warranty</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-headset"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="products.html" class="btn btn-primary hero-btn-primary">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Shop Collection</span>
+                        </a>
+                        <a href="products.html?filter=new" class="btn btn-outline hero-btn-outline">
+                            <i class="fas fa-sparkles"></i>
+                            <span>New Arrivals</span>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <div class="hero-image-main">
+                            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600" alt="MF Production Products" class="hero-main-img">
+                        </div>
+                        
+                        <div class="floating-elements">
+                            <div class="floating-badge badge-1">
+                                <i class="fas fa-fire"></i>
+                                <div class="badge-content">
+                                    <span class="badge-title">Hot Deal</span>
+                                    <span class="badge-text">Up to 50% OFF</span>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-badge badge-2">
+                                <i class="fas fa-truck"></i>
+                                <div class="badge-content">
+                                    <span class="badge-title">Free Shipping</span>
+                                    <span class="badge-text">Orders 2000+</span>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-badge badge-3">
+                                <i class="fas fa-award"></i>
+                                <div class="badge-content">
+                                    <span class="badge-title">Premium</span>
+                                    <span class="badge-text">Quality</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>Shop by Category</h2>
+                    <p>Discover premium products across our curated collections</p>
+                </div>
+                <a href="products.html" class="view-all-btn">
+                    <span>View All Products</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="category-grid">
+                <div class="category-card main-category" onclick="location.href='products.html?category=electronics'">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=600" alt="Electronics">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <div class="category-badge">Popular</div>
+                        </div>
+                        <h3>Electronics</h3>
+                        <p>Latest smartphones, laptops & gadgets</p>
+                        <div class="category-stats">
+                            <span class="product-count">500+ Products</span>
+                            <span class="price-range">From Rs. 1,000</span>
+                        </div>
+                        <div class="category-link">
+                            <span>Shop Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card coming-soon" onclick="showComingSoonAlert('Men\'s Fashion')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=400" alt="Men Fashion">
+                        <div class="category-overlay"></div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-badge">
+                                <i class="fas fa-clock"></i>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <div class="category-badge coming-soon-badge">Coming Soon</div>
+                        </div>
+                        <h3>Men's Fashion</h3>
+                        <p>Trendy clothing & accessories</p>
+                        <div class="category-stats">
+                            <span class="product-count">Launching Soon</span>
+                            <span class="price-range">Stay Tuned</span>
+                        </div>
+                        <div class="category-link">
+                            <span>Notify Me</span>
+                            <i class="fas fa-bell"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card coming-soon" onclick="showComingSoonAlert('Women\'s Fashion')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400" alt="Women Fashion">
+                        <div class="category-overlay"></div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-badge">
+                                <i class="fas fa-clock"></i>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <div class="category-badge coming-soon-badge">Coming Soon</div>
+                        </div>
+                        <h3>Women's Fashion</h3>
+                        <p>Elegant dresses & stylish wear</p>
+                        <div class="category-stats">
+                            <span class="product-count">Launching Soon</span>
+                            <span class="price-range">Stay Tuned</span>
+                        </div>
+                        <div class="category-link">
+                            <span>Notify Me</span>
+                            <i class="fas fa-bell"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card coming-soon" onclick="showComingSoonAlert('Perfumes')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" alt="Perfumes">
+                        <div class="category-overlay"></div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-badge">
+                                <i class="fas fa-clock"></i>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-spray-can"></i>
+                            </div>
+                            <div class="category-badge coming-soon-badge">Coming Soon</div>
+                        </div>
+                        <h3>Perfumes</h3>
+                        <p>Luxury fragrances & signature scents</p>
+                        <div class="category-stats">
+                            <span class="product-count">Launching Soon</span>
+                            <span class="price-range">Stay Tuned</span>
+                        </div>
+                        <div class="category-link">
+                            <span>Notify Me</span>
+                            <i class="fas fa-bell"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-features">
+                <div class="feature-highlight">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Authentic Products</h4>
+                        <p>100% genuine items with warranty</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Fast Delivery</h4>
+                        <p>Quick shipping across Pakistan</p>
+                    </div>
+                </div>
+                <div class="feature-highlight">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Best Prices</h4>
+                        <p>Competitive rates & great deals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="title-badge">
+                        <i class="fas fa-fire"></i>
+                        <span>Trending Now</span>
+                    </div>
+                    <h2>Best Selling Products</h2>
+                    <p>Discover our most popular items loved by thousands of customers worldwide</p>
+                </div>
+                <div class="section-controls">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">
+                            <i class="fas fa-th"></i>
+                            <span>All</span>
+                        </button>
+                        <button class="filter-tab" data-filter="electronics">
+                            <i class="fas fa-laptop"></i>
+                            <span>Electronics</span>
+                        </button>
+                        <button class="filter-tab" data-filter="fashion">
+                            <i class="fas fa-tshirt"></i>
+                            <span>Fashion</span>
+                        </button>
+                        <button class="filter-tab" data-filter="perfumes">
+                            <i class="fas fa-spray-can"></i>
+                            <span>Perfumes</span>
+                        </button>
+                    </div>
+                    <a href="products.html" class="view-all-products">
+                        <span>View All Products</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="products-container">
+                <div class="product-grid enhanced" id="bestSellersGrid">
+                    <!-- Products loaded via JS -->
+                </div>
+                
+                <div class="products-loading" id="productsLoading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading amazing products...</p>
+                </div>
+            </div>
+            
+            <div class="section-footer">
+                <div class="bestseller-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Top Rated</h4>
+                            <p>4.8+ Average Rating</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Fast Shipping</h4>
+                            <p>2-3 Days Delivery</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Best Quality</h4>
+                            <p>Premium Products Only</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Customer Love</h4>
+                            <p>98% Satisfaction Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIAL OFFERS -->
+    <section class="deals">
+        <div class="container">
+            <div class="deal-box">
+                <span class="deal-text">UP TO 70% OFF</span>
+                <a href="products.html" class="deal-link">VIEW DEALS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="title-badge reviews-badge">
+                        <i class="fas fa-heart"></i>
+                        <span>Customer Love</span>
+                    </div>
+                    <h2>⭐ What Our Customers Say</h2>
+                    <p>Join thousands of satisfied customers who trust MF Production for quality products</p>
+                </div>
+                <div class="review-summary">
+                    <div class="rating-overview">
+                        <div class="rating-score">4.9</div>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-count">Based on 15,000+ reviews</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-container">
+                <div class="reviews-grid">
+                    <div class="review-card featured">
+                        <div class="review-badge">Verified Purchase</div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Outstanding quality and lightning-fast delivery! The wireless earbuds exceeded all my expectations. Crystal clear sound and perfect fit. MF Production has become my go-to store for electronics."</p>
+                        <div class="review-footer">
+                            <div class="reviewer-info">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ahmed Khan" class="reviewer-avatar">
+                                <div class="reviewer-details">
+                                    <h5>Ahmed Khan</h5>
+                                    <span class="review-date">Electronics Enthusiast • 2 weeks ago</span>
+                                </div>
+                            </div>
+                            <div class="review-product">
+                                <i class="fas fa-headphones"></i>
+                                <span>Wireless Earbuds Pro</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-badge">Verified Purchase</div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Absolutely love the fabric quality and design! The abaya fits perfectly and the material feels premium. Great value for money and excellent customer service."</p>
+                        <div class="review-footer">
+                            <div class="reviewer-info">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ayesha Malik" class="reviewer-avatar">
+                                <div class="reviewer-details">
+                                    <h5>Ayesha Malik</h5>
+                                    <span class="review-date">Fashion Lover • 1 week ago</span>
+                                </div>
+                            </div>
+                            <div class="review-product">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Designer Abaya Collection</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-badge">Verified Purchase</div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Authentic fragrances at unbeatable prices! The scent lasts all day and the packaging is elegant. Will definitely order again. Highly recommend!"</p>
+                        <div class="review-footer">
+                            <div class="reviewer-info">
+                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Hassan Ali" class="reviewer-avatar">
+                                <div class="reviewer-details">
+                                    <h5>Hassan Ali</h5>
+                                    <span class="review-date">Fragrance Collector • 3 days ago</span>
+                                </div>
+                            </div>
+                            <div class="review-product">
+                                <i class="fas fa-spray-can"></i>
+                                <span>Premium Perfume Set</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reviews-actions">
+                    <button class="btn btn-primary write-review" onclick="openReviewModal()">
+                        <i class="fas fa-edit"></i>
+                        <span>Write a Review</span>
+                    </button>
+                </div>
+                
+                <!-- Review Modal -->
+                <div id="reviewModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Write a Review</h3>
+                            <span class="close" onclick="closeReviewModal()">&times;</span>
+                        </div>
+                        <form id="reviewForm">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" id="reviewerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Rating</label>
+                                <div class="star-rating">
+                                    <span class="star" data-rating="1">★</span>
+                                    <span class="star" data-rating="2">★</span>
+                                    <span class="star" data-rating="3">★</span>
+                                    <span class="star" data-rating="4">★</span>
+                                    <span class="star" data-rating="5">★</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Your Review</label>
+                                <textarea id="reviewText" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Product Purchased</label>
+                                <input type="text" id="productName" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="trust-badges-section">
+        <div class="container">
+            <div class="trust-row">
+                <div class="trust-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <div>
+                        <h4>Free Delivery</h4>
+                        <p>On orders above Rs. 2,000 • Same day delivery in major cities</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Secure Payment</h4>
+                        <p>100% Protected transactions • SSL encrypted & bank-level security</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-undo-alt"></i>
+                    <div>
+                        <h4>Easy Returns</h4>
+                        <p>7 Days hassle-free returns • No questions asked policy</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <h4>24/7 Support</h4>
+                        <p>Always here to help you • Live chat, phone & email support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/simple-products.js"></script>
+    
+    <script>
+        // Countdown timer functionality
+        function initializeCountdownTimer() {
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+            const secondsElement = document.getElementById('seconds');
+            
+            if (!hoursElement || !minutesElement || !secondsElement) return;
+            
+            // Set end time (24 hours from now)
+            const endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+            
+            function updateTimer() {
+                const now = new Date().getTime();
+                const timeLeft = endTime - now;
+                
+                if (timeLeft > 0) {
+                    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    hoursElement.textContent = hours.toString().padStart(2, '0');
+                    minutesElement.textContent = minutes.toString().padStart(2, '0');
+                    secondsElement.textContent = seconds.toString().padStart(2, '0');
+                } else {
+                    hoursElement.textContent = '00';
+                    minutesElement.textContent = '00';
+                    secondsElement.textContent = '00';
+                }
+            }
+            
+            // Update timer immediately and then every second
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        // Review modal functionality
+        function openReviewModal() {
+            document.getElementById('reviewModal').style.display = 'block';
+        }
+        
+        function closeReviewModal() {
+            document.getElementById('reviewModal').style.display = 'none';
+        }
+        
+        // Star rating functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const stars = document.querySelectorAll('.star');
+            let selectedRating = 0;
+            
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    selectedRating = parseInt(star.dataset.rating);
+                    updateStars(selectedRating);
+                });
+            });
+            
+            function updateStars(rating) {
+                stars.forEach((star, index) => {
+                    star.style.color = index < rating ? '#C6A664' : '#ddd';
+                });
+            }
+            
+            // Form submission
+            document.getElementById('reviewForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your review! It will be published after verification.');
+                closeReviewModal();
+                document.getElementById('reviewForm').reset();
+                updateStars(0);
+            });
+            
+            // Load products for bestsellers section
+            fetch('http://localhost:5000/api/products')
+                .then(response => response.json())
+                .then(products => {
+                    window.allProducts = products; // Store globally
+                    const bestSellers = products.filter(p => p.bestseller).slice(0, 8);
+                    const container = document.getElementById('bestSellersGrid');
+                    container.innerHTML = bestSellers.map(product => `
+                        <div class="product-card" onclick="window.location.href='product-view.html?id=${product._id}'">
+                            <div class="product-image-wrapper">
+                                <div class="product-image">
+                                    <img src="${product.image}" alt="${product.name}">
+                                    <div class="image-overlay">
+                                        <div class="overlay-buttons">
+                                            <button class="overlay-btn" onclick="event.stopPropagation(); addCartSimple('${product._id}', '${product.name.replace(/'/g, '')}', ${product.price})" title="Add to Cart">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                            <button class="overlay-btn" onclick="event.stopPropagation(); window.location.href='product-view.html?id=${product._id}'" title="Quick View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="overlay-btn" onclick="event.stopPropagation(); alert('Added to wishlist!')" title="Add to Wishlist">
+                                                <i class="fas fa-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                ${product.new ? '<div class="product-badge new"><i class="fas fa-star"></i> NEW</div>' : ''}
+                                ${product.bestseller ? '<div class="product-badge bestseller"><i class="fas fa-fire"></i> HOT</div>' : ''}
+                                ${product.originalPrice ? '<div class="discount-badge">-' + Math.round((1 - product.price / product.originalPrice) * 100) + '%</div>' : ''}
+                            </div>
+                            <div class="product-info">
+                                <div class="product-meta">
+                                    <span class="product-category">${product.category.toUpperCase()}</span>
+                                    <div class="product-rating">
+                                        <div class="stars">${'★'.repeat(Math.floor(product.rating || 4))}${'☆'.repeat(5 - Math.floor(product.rating || 4))}</div>
+                                        <span class="rating-text">${product.rating || 4.0}</span>
+                                    </div>
+                                </div>
+                                <h3 class="product-name">${product.name}</h3>
+                                <p class="product-description">${product.description.substring(0, 60)}...</p>
+                                <div class="product-price">
+                                    <span class="current-price">Rs. ${product.price.toLocaleString()}</span>
+                                    ${product.originalPrice ? `<span class="original-price">Rs. ${product.originalPrice.toLocaleString()}</span>` : ''}
+                                </div>
+                                <div class="product-footer">
+                                    <div class="stock-info">
+                                        <i class="fas fa-box"></i>
+                                        <span>${product.stock || 10} in stock</span>
+                                    </div>
+                                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addCartSimple('${product._id}', '${product.name.replace(/'/g, '')}', ${product.price})">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    // Setup filter tabs after products are loaded
+                    setupBestsellerFilters();
+                })
+                .catch(error => console.error('Error loading products:', error));
+            
+            // Initialize filter tabs
+            initializeFilterTabs();
+            
+            // Filter tabs will be setup after products load
+        });
+        
+        // Filter tabs functionality
+        function initializeFilterTabs() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const productGrid = document.getElementById('bestSellersGrid');
+            
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Get filter value
+                    const filter = tab.getAttribute('data-filter');
+                    
+                    // Filter and display products
+                    filterProducts(filter, productGrid);
+                });
+            });
+        }
+        
+        function addCartSimple(id, name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let found = cart.find(item => item.id === id);
+            
+            if (found) {
+                found.quantity++;
+            } else {
+                cart.push({id: id, name: name, price: price, quantity: 1});
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('✓ Added to cart!');
+        }
+        
+        function setupBestsellerFilters() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Get filter value
+                    const filter = tab.getAttribute('data-filter');
+                    
+                    // Filter and display products
+                    filterBestsellers(filter);
+                });
+            });
+        }
+        
+        function showComingSoonAlert(category) {
+            alert(`🚀 ${category} collection is launching soon!\n\n✨ We're working hard to bring you the best products\n🔔 We'll notify you when it's ready\n\n👉 Browse our Electronics collection in the meantime!`);
+        }
+        
+        function filterBestsellers(filter) {
+            if (!window.allProducts) return;
+            
+            let filteredProducts;
+            
+            if (filter === 'all') {
+                filteredProducts = window.allProducts.filter(p => p.bestseller && p.category === 'electronics').slice(0, 8);
+            } else if (filter === 'electronics') {
+                filteredProducts = window.allProducts.filter(p => p.bestseller && p.category === 'electronics').slice(0, 8);
+            } else if (filter === 'fashion') {
+                // Show coming soon message for fashion
+                showComingSoonAlert('Fashion');
+                return;
+            } else if (filter === 'perfumes') {
+                // Show coming soon message for perfumes
+                showComingSoonAlert('Perfumes');
+                return;
+            }
+            
+            // Update the display
+            const container = document.getElementById('bestSellersGrid');
+            container.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                container.innerHTML = filteredProducts.map(product => `
+                    <div class="product-card" onclick="window.location.href='product-view.html?id=${product._id}'">
+                        <div class="product-image-wrapper">
+                            <div class="product-image">
+                                <img src="${product.image}" alt="${product.name}">
+                                <div class="image-overlay">
+                                    <div class="overlay-buttons">
+                                        <button class="overlay-btn" onclick="event.stopPropagation(); addCartSimple('${product._id}', '${product.name.replace(/'/g, '')}', ${product.price})" title="Add to Cart">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                        <button class="overlay-btn" onclick="event.stopPropagation(); window.location.href='product-view.html?id=${product._id}'" title="Quick View">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="overlay-btn" onclick="event.stopPropagation(); alert('Added to wishlist!')" title="Add to Wishlist">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            ${product.new ? '<div class="product-badge new"><i class="fas fa-star"></i> NEW</div>' : ''}
+                            ${product.bestseller ? '<div class="product-badge bestseller"><i class="fas fa-fire"></i> HOT</div>' : ''}
+                            ${product.originalPrice ? '<div class="discount-badge">-' + Math.round((1 - product.price / product.originalPrice) * 100) + '%</div>' : ''}
+                        </div>
+                        <div class="product-info">
+                            <div class="product-meta">
+                                <span class="product-category">${product.category.toUpperCase()}</span>
+                                <div class="product-rating">
+                                    <div class="stars">${'★'.repeat(Math.floor(product.rating || 4))}${'☆'.repeat(5 - Math.floor(product.rating || 4))}</div>
+                                    <span class="rating-text">${product.rating || 4.0}</span>
+                                </div>
+                            </div>
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">${product.description.substring(0, 60)}...</p>
+                            <div class="product-price">
+                                <span class="current-price">Rs. ${product.price.toLocaleString()}</span>
+                                ${product.originalPrice ? `<span class="original-price">Rs. ${product.originalPrice.toLocaleString()}</span>` : ''}
+                            </div>
+                            <div class="product-footer">
+                                <div class="stock-info">
+                                    <i class="fas fa-box"></i>
+                                    <span>${product.stock || 10} in stock</span>
+                                </div>
+                                <button class="add-to-cart-btn" onclick="event.stopPropagation(); addCartSimple('${product._id}', '${product.name.replace(/'/g, '')}', ${product.price})">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                container.style.opacity = '1';
+            }, 300);
+        }
+    </script>
+</body>
+</html>

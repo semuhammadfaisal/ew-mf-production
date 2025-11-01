@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - MF Production</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .checkout-section { padding: 20px 0; background: var(--neutral-50); }
+        .checkout-header h1 { font-size: 24px; margin-bottom: 20px; }
+        .checkout-container { display: flex; flex-direction: column; gap: 25px; }
+        .checkout-form { width: 100%; }
+        .form-section { background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .form-section h2 { font-size: 18px; margin-bottom: 15px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; }
+        .form-row { display: flex; flex-direction: column; gap: 15px; }
+        .payment-options { display: flex; flex-direction: column; gap: 12px; }
+        .payment-option { display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; }
+        .payment-info strong { display: block; margin-bottom: 4px; }
+        .payment-info p { font-size: 12px; color: var(--neutral-600); margin: 0; }
+        .order-summary { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .order-summary h2 { font-size: 18px; margin-bottom: 15px; }
+        .order-items { max-height: 250px; overflow-y: auto; margin-bottom: 15px; }
+        .order-item { display: flex; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+        .order-item-image { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+        .order-item-details { flex: 1; }
+        .order-item-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+        .order-item-qty { font-size: 12px; color: var(--neutral-600); margin: 0; }
+        .order-item-price { font-weight: 700; color: var(--secondary-gold); font-size: 14px; }
+        .summary-details { margin-bottom: 15px; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+        .summary-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: 700; padding-top: 12px; border-top: 1px solid #ddd; margin-bottom: 20px; }
+        .place-order-btn { width: 100%; padding: 15px; font-size: 16px; }
+        @media (min-width: 768px) {
+            .checkout-section { padding: 40px 0; }
+            .checkout-header h1 { font-size: 32px; margin-bottom: 30px; }
+            .checkout-container { flex-direction: row; gap: 40px; }
+            .checkout-form { flex: 2; }
+            .order-summary { flex: 1; position: sticky; top: 100px; height: fit-content; }
+            .form-row { flex-direction: row; }
+            .form-section h2 { font-size: 20px; }
+            .order-summary h2 { font-size: 20px; }
+        }
+        @media (min-width: 1024px) {
+            .checkout-section { padding: 60px 0; }
+            .checkout-header h1 { font-size: 36px; margin-bottom: 40px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <div id="navbar-container"></div>
+
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-header">
+                <h1>Checkout</h1>
+            </div>
+
+            <div class="checkout-container">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <form id="checkoutForm">
+                        <!-- Shipping Information -->
+                        <div class="form-section">
+                            <h2>Shipping Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name *</label>
+                                    <input type="text" id="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name *</label>
+                                    <input type="text" id="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Complete Address *</label>
+                                <textarea id="address" required rows="3"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>City *</label>
+                                    <input type="text" id="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Postal Code</label>
+                                    <input type="text" id="postalCode">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="form-section">
+                            <h2>Payment Method</h2>
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="cod" checked>
+                                    <div class="payment-info">
+                                        <strong>Cash on Delivery (COD)</strong>
+                                        <p>Pay when you receive</p>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="jazzcash">
+                                    <div class="payment-info">
+                                        <strong>JazzCash</strong>
+                                        <p>Pay via JazzCash mobile wallet</p>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="easypaisa">
+                                    <div class="payment-info">
+                                        <strong>Easypaisa</strong>
+                                        <p>Pay via Easypaisa mobile wallet</p>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="card">
+                                    <div class="payment-info">
+                                        <strong>Credit/Debit Card</strong>
+                                        <p>Secure card payment</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    
+                    <div id="orderItems" class="order-items"></div>
+
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="checkoutSubtotal">Rs. 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="checkoutShipping">Rs. 150</span>
+                        </div>
+                    </div>
+
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="checkoutTotal">Rs. 0</span>
+                    </div>
+
+                    <button type="submit" form="checkoutForm" class="btn btn-primary place-order-btn">
+                        <i class="fas fa-check-circle"></i> Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        function displayOrderSummary() {
+            // Check if this is a buy now checkout
+            const urlParams = new URLSearchParams(window.location.search);
+            const isBuyNow = urlParams.get('buynow') === 'true';
+            
+            let cart;
+            if (isBuyNow) {
+                const buyNowItem = JSON.parse(sessionStorage.getItem('buyNowItem') || 'null');
+                if (!buyNowItem) {
+                    window.location.href = 'index.html';
+                    return;
+                }
+                cart = [buyNowItem];
+            } else {
+                cart = getCart();
+                if (cart.length === 0) {
+                    window.location.href = 'cart.html';
+                    return;
+                }
+            }
+            
+            const orderItemsDiv = document.getElementById('orderItems');
+
+            orderItemsDiv.innerHTML = cart.map(item => `
+                <div class="order-item">
+                    <img src="${item.image}" alt="${item.name}" class="order-item-image">
+                    <div class="order-item-details">
+                        <p class="order-item-name">${item.name}</p>
+                        <p class="order-item-qty">Qty: ${item.quantity}</p>
+                    </div>
+                    <p class="order-item-price">
+                        Rs. ${(item.price * item.quantity).toLocaleString()}
+                    </p>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 2000 ? 0 : 150;
+            const total = subtotal + shipping;
+
+            document.getElementById('checkoutSubtotal').textContent = `Rs. ${subtotal.toLocaleString()}`;
+            document.getElementById('checkoutShipping').textContent = shipping === 0 ? 'FREE' : `Rs. ${shipping}`;
+            document.getElementById('checkoutTotal').textContent = `Rs. ${total.toLocaleString()}`;
+        }
+
+        // The form submission is now handled by checkout.js
+
+        // Initial display
+        displayOrderSummary();
+    </script>
+</body>
+</html>
