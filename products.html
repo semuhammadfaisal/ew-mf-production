@@ -194,7 +194,7 @@
                             <img src="${product.image}" alt="${product.name}">
                             <div class="image-overlay">
                                 <div class="overlay-buttons">
-                                    <button class="overlay-btn" onclick="event.stopPropagation(); addCartSimple('${product._id}', '${product.name.replace(/'/g, '')}', ${product.price})" title="Add to Cart">
+                                    <button class="overlay-btn" onclick="event.stopPropagation(); addCartSimple('${product._id}', `${product.name}`, ${product.price})" title="Add to Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                     </button>
                                     <button class="overlay-btn" onclick="event.stopPropagation(); window.location.href='product-view.html?id=${product._id}'" title="Quick View">
@@ -229,7 +229,7 @@
                                 <i class="fas fa-box"></i>
                                 <span>${product.stock || 10} in stock</span>
                             </div>
-                            <button class="add-to-cart-btn" onclick="event.stopPropagation(); addCartSimple('${product._id}', '${product.name.replace(/'/g, '')}', ${product.price})">
+                            <button class="add-to-cart-btn" onclick="event.stopPropagation(); addCartSimple('${product._id}', `${product.name}`, ${product.price})">
                                 <i class="fas fa-plus"></i> Add to Cart
                             </button>
                         </div>

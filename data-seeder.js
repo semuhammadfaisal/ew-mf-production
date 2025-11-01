@@ -42,7 +42,7 @@ const sampleProducts = [
         new: true
     },
     {
-        name: 'Men\'s Formal Cotton Shirt',
+        name: "Men's Formal Cotton Shirt",
         description: 'Premium cotton blend formal shirt - perfect for office wear',
         price: 1800,
         originalPrice: 2500,
@@ -65,7 +65,7 @@ const sampleProducts = [
         bestseller: true
     },
     {
-        name: 'Men\'s Luxury Perfume 100ml',
+        name: "Men's Luxury Perfume 100ml",
         description: 'Long-lasting masculine fragrance with woody notes',
         price: 2800,
         originalPrice: 3500,

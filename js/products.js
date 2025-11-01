@@ -84,7 +84,7 @@ const fallbackProducts = [
     },
     {
         id: 5,
-        name: 'Men\'s Formal Cotton Shirt',
+        name: "Men's Formal Cotton Shirt",
         description: 'Premium cotton blend formal shirt - perfect for office wear',
         price: 1800,
         originalPrice: 2500,
@@ -156,7 +156,7 @@ const fallbackProducts = [
     },
     {
         id: 11,
-        name: 'Women\'s Luxury Handbag',
+        name: "Women's Luxury Handbag",
         description: 'Premium leather handbag with multiple compartments',
         price: 5500,
         category: 'women',
@@ -180,7 +180,7 @@ const fallbackProducts = [
     },
     {
         id: 13,
-        name: 'Men\'s Luxury Perfume 100ml',
+        name: "Men's Luxury Perfume 100ml",
         description: 'Long-lasting masculine fragrance with woody notes',
         price: 2800,
         originalPrice: 3500,
@@ -193,7 +193,7 @@ const fallbackProducts = [
     },
     {
         id: 14,
-        name: 'Women\'s Floral Perfume 50ml',
+        name: "Women's Floral Perfume 50ml",
         description: 'Delicate floral scent that lasts all day',
         price: 2500,
         category: 'perfumes',
@@ -242,7 +242,7 @@ const fallbackProducts = [
     },
     {
         id: 18,
-        name: 'Men\'s Casual Polo Shirt',
+        name: "Men's Casual Polo Shirt",
         description: 'Comfortable cotton polo shirt perfect for casual outings',
         price: 1500,
         category: 'men',
@@ -253,7 +253,7 @@ const fallbackProducts = [
     },
     {
         id: 19,
-        name: 'Women\'s Designer Scarf',
+        name: "Women's Designer Scarf",
         description: 'Elegant silk scarf with beautiful patterns and premium quality',
         price: 1800,
         originalPrice: 2500,
