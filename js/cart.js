@@ -35,7 +35,7 @@ function addToCart(productId) {
 
 function removeFromCart(productId) {
     const cart = getCart();
-    const updatedCart = cart.filter(item => item.id !== productId);
+    const updatedCart = cart.filter(item => item.id != productId); // Use != instead of !== for loose comparison
     saveCart(updatedCart);
     
     // Reload cart display if on cart page
@@ -53,7 +53,7 @@ function updateQuantity(productId, newQuantity) {
     }
 
     const cart = getCart();
-    const item = cart.find(item => item.id === productId);
+    const item = cart.find(item => item.id == productId); // Use == for loose comparison
     
     if (item) {
         item.quantity = newQuantity;
