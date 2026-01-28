@@ -147,17 +147,17 @@
                     <div class="summary-details">
                         <div class="summary-row">
                             <span>Subtotal</span>
-                            <span id="checkoutSubtotal">Rs. 0</span>
+                            <span id="checkoutSubtotal">AED 0</span>
                         </div>
                         <div class="summary-row">
                             <span>Shipping</span>
-                            <span id="checkoutShipping">Rs. 150</span>
+                            <span id="checkoutShipping">AED 40</span>
                         </div>
                     </div>
 
                     <div class="summary-total">
                         <span>Total</span>
-                        <span id="checkoutTotal">Rs. 0</span>
+                        <span id="checkoutTotal">AED 0</span>
                     </div>
 
                     <button type="submit" form="checkoutForm" class="btn btn-primary place-order-btn">
@@ -209,18 +209,18 @@
                         <p class="order-item-qty">Qty: ${item.quantity}</p>
                     </div>
                     <p class="order-item-price">
-                        Rs. ${(item.price * item.quantity).toLocaleString()}
+                        AED ${(item.price * item.quantity).toLocaleString()}
                     </p>
                 </div>
             `).join('');
 
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const shipping = subtotal >= 2000 ? 0 : 150;
+            const shipping = subtotal >= 540 ? 0 : 40;
             const total = subtotal + shipping;
 
-            document.getElementById('checkoutSubtotal').textContent = `Rs. ${subtotal.toLocaleString()}`;
-            document.getElementById('checkoutShipping').textContent = shipping === 0 ? 'FREE' : `Rs. ${shipping}`;
-            document.getElementById('checkoutTotal').textContent = `Rs. ${total.toLocaleString()}`;
+            document.getElementById('checkoutSubtotal').textContent = `AED ${subtotal.toLocaleString()}`;
+            document.getElementById('checkoutShipping').textContent = shipping === 0 ? 'FREE' : `AED ${shipping}`;
+            document.getElementById('checkoutTotal').textContent = `AED ${total.toLocaleString()}`;
         }
 
         // The form submission is now handled by checkout.js

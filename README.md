@@ -1,6 +1,6 @@
 # MF Production E-commerce Store
 
-A modern, responsive e-commerce platform with MongoDB Atlas integration for complete product management, customer reviews, and order processing.
+A modern, responsive e-commerce platform with MongoDB Atlas integration for complete product management, customer reviews, and order processing. All prices displayed in UAE Dirhams (AED).
 
 ## 🚀 Features
 
@@ -9,7 +9,7 @@ A modern, responsive e-commerce platform with MongoDB Atlas integration for comp
 - **Product Catalog**: Browse products by categories (Electronics, Men's Fashion, Women's Fashion, Perfumes)
 - **Shopping Cart**: Add/remove items with real-time cart updates
 - **Product Reviews**: Customer reviews with star ratings
-- **Order Checkout**: Complete order processing with customer information
+- **Order Checkout**: Complete order processing with customer information (AED currency)
 - **Order Tracking**: Track order status and history
 
 ### Admin Features

@@ -82,11 +82,11 @@
                     <div class="summary-details">
                         <div class="summary-row">
                             <span>Subtotal</span>
-                            <span id="subtotal" class="summary-value">Rs. 0</span>
+                            <span id="subtotal" class="summary-value">AED 0</span>
                         </div>
                         <div class="summary-row">
                             <span>Shipping</span>
-                            <span id="shipping" class="summary-value">Rs. 150</span>
+                            <span id="shipping" class="summary-value">AED 40</span>
                         </div>
                         <div id="freeShippingMsg" class="free-shipping-msg">
                             <i class="fas fa-check-circle"></i> You've got free shipping!
@@ -96,7 +96,7 @@
 
                     <div class="summary-total">
                         <span>Total</span>
-                        <span id="total">Rs. 0</span>
+                        <span id="total">AED 0</span>
                     </div>
 
                     <div class="cart-actions">
@@ -144,7 +144,7 @@
                     <div class="item-details">
                         <h3 class="item-name">${item.name}</h3>
                         <p class="item-category">${item.category}</p>
-                        <p class="item-price">Rs. ${item.price.toLocaleString()}</p>
+                        <p class="item-price">AED ${item.price.toLocaleString()}</p>
                         
                         <div class="quantity-controls">
                             <button class="qty-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">
@@ -169,22 +169,22 @@
         function updateCartSummary() {
             const cart = getCart();
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const shipping = subtotal >= 2000 ? 0 : 150;
+            const shipping = subtotal >= 540 ? 0 : 40;
             const total = subtotal + shipping;
 
-            document.getElementById('subtotal').textContent = `Rs. ${subtotal.toLocaleString()}`;
-            document.getElementById('shipping').textContent = shipping === 0 ? 'FREE' : `Rs. ${shipping}`;
-            document.getElementById('total').textContent = `Rs. ${total.toLocaleString()}`;
+            document.getElementById('subtotal').textContent = `AED ${subtotal.toLocaleString()}`;
+            document.getElementById('shipping').textContent = shipping === 0 ? 'FREE' : `AED ${shipping}`;
+            document.getElementById('total').textContent = `AED ${total.toLocaleString()}`;
 
-            if (subtotal >= 2000) {
+            if (subtotal >= 540) {
                 document.getElementById('freeShippingMsg').style.display = 'block';
                 document.getElementById('shippingProgress').style.display = 'none';
             } else {
-                const remaining = 2000 - subtotal;
+                const remaining = 540 - subtotal;
                 document.getElementById('freeShippingMsg').style.display = 'none';
                 document.getElementById('shippingProgress').style.display = 'block';
                 document.getElementById('shippingProgress').innerHTML = 
-                    `Add Rs. ${remaining.toLocaleString()} more for free shipping`;
+                    `Add AED ${remaining.toLocaleString()} more for free shipping`;
             }
         }
 

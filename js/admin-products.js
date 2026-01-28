@@ -51,7 +51,7 @@ function displayAdminProducts() {
             <td><img src="${product.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"></td>
             <td><strong>${product.name}</strong></td>
             <td><span class="badge">${getCategoryName(product.category)}</span></td>
-            <td><strong>Rs. ${product.price.toLocaleString()}</strong></td>
+            <td><strong>AED ${product.price.toLocaleString()}</strong></td>
             <td>${product.stock}</td>
             <td>
                 ${product.isActive && product.stock > 0 

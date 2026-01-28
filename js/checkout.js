@@ -145,10 +145,10 @@ function displayOrderConfirmation(order) {
                         <div class="item-details">
                             <h4>${item.name}</h4>
                             <p>Quantity: ${item.quantity}</p>
-                            <p>Price: Rs. ${item.price.toLocaleString()}</p>
+                            <p>Price: AED ${item.price.toLocaleString()}</p>
                         </div>
                         <div class="item-total">
-                            Rs. ${(item.quantity * item.price).toLocaleString()}
+                            AED ${(item.quantity * item.price).toLocaleString()}
                         </div>
                     </div>
                 `).join('')}
@@ -156,7 +156,7 @@ function displayOrderConfirmation(order) {
             
             <div class="order-summary">
                 <div class="total-amount">
-                    <h3>Total Amount: Rs. ${order.totalAmount.toLocaleString()}</h3>
+                    <h3>Total Amount: AED ${order.totalAmount.toLocaleString()}</h3>
                 </div>
             </div>
             

@@ -8,8 +8,8 @@ const sampleProducts = [
     {
         name: 'Wireless Bluetooth Earbuds Pro',
         description: 'Premium sound quality with active noise cancellation. 30-hour battery life.',
-        price: 3500,
-        originalPrice: 5000,
+        price: 950,
+        originalPrice: 1350,
         category: 'electronics',
         image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500',
         stock: 50,
@@ -21,8 +21,8 @@ const sampleProducts = [
     {
         name: 'Fast Charging Power Bank 20000mAh',
         description: 'Portable charger with LED display and dual USB ports',
-        price: 2800,
-        originalPrice: 3500,
+        price: 760,
+        originalPrice: 950,
         category: 'electronics',
         image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500',
         stock: 75,
@@ -33,7 +33,7 @@ const sampleProducts = [
     {
         name: 'Smart Watch Fitness Tracker',
         description: 'Track your fitness goals with heart rate monitor and GPS',
-        price: 4500,
+        price: 1220,
         category: 'electronics',
         image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500',
         stock: 40,
@@ -44,8 +44,8 @@ const sampleProducts = [
     {
         name: "Men's Formal Cotton Shirt",
         description: 'Premium cotton blend formal shirt - perfect for office wear',
-        price: 1800,
-        originalPrice: 2500,
+        price: 490,
+        originalPrice: 680,
         category: 'men',
         image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500',
         stock: 100,
@@ -56,7 +56,7 @@ const sampleProducts = [
     {
         name: 'Designer Abaya - Black Embroidered',
         description: 'Elegant black abaya with beautiful gold embroidery',
-        price: 4500,
+        price: 1220,
         category: 'women',
         image: 'https://images.unsplash.com/photo-1583391733981-9b74a7f8c4f1?w=500',
         stock: 30,
@@ -67,8 +67,8 @@ const sampleProducts = [
     {
         name: "Men's Luxury Perfume 100ml",
         description: 'Long-lasting masculine fragrance with woody notes',
-        price: 2800,
-        originalPrice: 3500,
+        price: 760,
+        originalPrice: 950,
         category: 'perfumes',
         image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=500',
         stock: 75,

@@ -51,10 +51,10 @@ function displayAdminOrders() {
                         <img src="${item.image}" alt="${item.name}" class="item-image">
                         <div class="item-details">
                             <h5>${item.name}</h5>
-                            <p>Qty: ${item.quantity} × Rs. ${item.price.toLocaleString()}</p>
+                            <p>Qty: ${item.quantity} × AED ${item.price.toLocaleString()}</p>
                         </div>
                         <div class="item-total">
-                            Rs. ${(item.quantity * item.price).toLocaleString()}
+                            AED ${(item.quantity * item.price).toLocaleString()}
                         </div>
                     </div>
                 `).join('')}
@@ -68,7 +68,7 @@ function displayAdminOrders() {
                     </p>
                 </div>
                 <div class="total-amount">
-                    <h4>Total: Rs. ${order.totalAmount.toLocaleString()}</h4>
+                    <h4>Total: AED ${order.totalAmount.toLocaleString()}</h4>
                 </div>
             </div>
         </div>
