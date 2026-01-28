@@ -715,8 +715,8 @@
             // Product info
             document.getElementById('productCategory').textContent = getCategoryName(product.category);
             document.getElementById('productTitle').textContent = product.name;
-            document.getElementById('productStars').innerHTML = generateStars(product.rating || 4.5);
-            document.getElementById('productRating').textContent = (product.rating || 4.5).toFixed(1);
+                            document.getElementById('productStars').innerHTML = '★★★★★';
+                            document.getElementById('productRating').textContent = '5.0';
             document.getElementById('productReviews').textContent = product.reviews || 0;
             document.getElementById('productPrice').textContent = `AED ${product.price.toLocaleString()}`;
             
