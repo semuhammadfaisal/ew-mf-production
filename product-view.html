@@ -535,7 +535,7 @@
                         <span class="original-price" id="productOriginalPrice" style="display: none;"></span>
                         <span class="discount-badge" id="discountBadge" style="display: none;"></span>
                     </div>
-                    <div class="price-note">Inclusive of all taxes • Free shipping on orders over Rs. 2000</div>
+                    <div class="price-note">Inclusive of all taxes • Free shipping on orders over AED 540</div>
                 </div>
                 
                 <div class="product-description" id="productDescription">Loading product details...</div>
@@ -685,10 +685,10 @@
             document.getElementById('productStars').innerHTML = generateStars(product.rating || 4.5);
             document.getElementById('productRating').textContent = (product.rating || 4.5).toFixed(1);
             document.getElementById('productReviews').textContent = product.reviews || 0;
-            document.getElementById('productPrice').textContent = `Rs. ${product.price.toLocaleString()}`;
+            document.getElementById('productPrice').textContent = `AED ${product.price.toLocaleString()}`;
             
             if (product.originalPrice) {
-                document.getElementById('productOriginalPrice').textContent = `Rs. ${product.originalPrice.toLocaleString()}`;
+                document.getElementById('productOriginalPrice').textContent = `AED ${product.originalPrice.toLocaleString()}`;
                 document.getElementById('productOriginalPrice').style.display = 'inline';
                 
                 const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
@@ -865,7 +865,7 @@
                                 <div style="color: #ffc107; font-size: 14px;">★★★★★</div>
                                 <span style="color: #666; font-size: 14px;">(4.5)</span>
                             </div>
-                            <div style="color: #C6A664; font-size: 20px; font-weight: 800;">Rs. ${product.price.toLocaleString()}</div>
+                            <div style="color: #C6A664; font-size: 20px; font-weight: 800;">AED ${product.price.toLocaleString()}</div>
                         </div>
                         <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #C6A664, #D4AF37); transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left;"></div>
                     </div>
