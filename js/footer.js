@@ -11,7 +11,7 @@ function loadFooter() {
                             <p>Your trusted destination for premium electronics, fashion & fragrances in Pakistan.</p>
                         </div>
                         <div class="footer-social">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100090394263406"><i class="fab fa-facebook"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-whatsapp"></i></a>
                             <a href="#"><i class="fab fa-youtube"></i></a>
