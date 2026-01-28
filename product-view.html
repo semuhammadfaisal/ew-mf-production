@@ -834,7 +834,7 @@
             localStorage.setItem('cart', JSON.stringify(cart));
             
             // Show success message
-            const btn = document.querySelector('.btn-add-cart');
+            const btn = event.target;
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
             btn.style.background = '#28a745';
