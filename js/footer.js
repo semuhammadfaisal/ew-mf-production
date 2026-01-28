@@ -51,10 +51,9 @@ function loadFooter() {
                     <div class="footer-section">
                         <h4>Contact Info</h4>
                         <div class="contact-info">
-                            <p><i class="fas fa-phone"></i> +92 311 084 9559</p>
+                            <p><i class="fas fa-phone"></i> +971 54 387 4006</p>
                             <p><i class="fas fa-envelope"></i> info@mfproduction.pk</p>
-                            <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
-                            <p><i class="fas fa-map-marker-alt"></i> Dubai, UAE</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Dubai Al hamriya</p>
                         </div>
                     </div>
                 </div>
