@@ -720,13 +720,15 @@
             document.getElementById('productReviews').textContent = product.reviews || 0;
             document.getElementById('productPrice').textContent = `AED ${product.price.toLocaleString()}`;
             
-            if (product.originalPrice) {
+            if (product.originalPrice && product.originalPrice > product.price) {
                 document.getElementById('productOriginalPrice').textContent = `AED ${product.originalPrice.toLocaleString()}`;
                 document.getElementById('productOriginalPrice').style.display = 'inline';
                 
                 const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
-                document.getElementById('discountBadge').textContent = `${discount}% OFF`;
-                document.getElementById('discountBadge').style.display = 'inline-block';
+                if (discount > 0) {
+                    document.getElementById('discountBadge').textContent = `${discount}% OFF`;
+                    document.getElementById('discountBadge').style.display = 'inline-block';
+                }
             }
             
             document.getElementById('productDescription').textContent = product.description;
