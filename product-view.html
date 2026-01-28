@@ -710,11 +710,7 @@
             setupImageGallery(product);
             
             // Product badges
-            const badges = [];
-            if (product.new) badges.push('<span class="badge badge-new">New</span>');
-            if (product.originalPrice) badges.push('<span class="badge badge-sale">Sale</span>');
-            if (product.bestseller) badges.push('<span class="badge badge-bestseller">Bestseller</span>');
-            document.getElementById('productBadges').innerHTML = badges.join('');
+            document.getElementById('productBadges').innerHTML = '';
             
             // Product info
             document.getElementById('productCategory').textContent = getCategoryName(product.category);
