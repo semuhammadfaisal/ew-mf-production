@@ -833,6 +833,11 @@
             
             localStorage.setItem('cart', JSON.stringify(cart));
             
+            // Update cart count if function exists
+            if (typeof updateCartCount === 'function') {
+                updateCartCount();
+            }
+            
             // Show success message
             const btn = event.target;
             const originalText = btn.innerHTML;
