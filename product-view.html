@@ -354,7 +354,7 @@
             margin-bottom: 40px;
         }
         .btn-add-cart {
-            flex: 2;
+            flex: 1;
             padding: 20px 35px;
             background: linear-gradient(135deg, #C6A664, #D4AF37);
             color: white;
@@ -374,7 +374,28 @@
             letter-spacing: 0.5px;
             box-shadow: 0 8px 25px rgba(198, 166, 100, 0.3);
         }
-        .btn-add-cart::before {
+        .btn-buy-now {
+            flex: 1;
+            padding: 20px 35px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+        .btn-add-cart::before, .btn-buy-now::before {
             content: '';
             position: absolute;
             top: 0;
@@ -384,14 +405,19 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transition: left 0.6s ease;
         }
-        .btn-add-cart:hover::before {
+        .btn-add-cart:hover::before, .btn-buy-now:hover::before {
             left: 100%;
         }
-        .btn-add-cart:hover {
+        .btn-add-cart:hover, .btn-buy-now:hover {
             transform: translateY(-4px) scale(1.02);
+        }
+        .btn-add-cart:hover {
             box-shadow: 0 15px 40px rgba(198, 166, 100, 0.4);
         }
-        .btn-add-cart:active {
+        .btn-buy-now:hover {
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+        .btn-add-cart:active, .btn-buy-now:active {
             transform: translateY(-2px) scale(0.98);
         }
         .btn-wishlist, .btn-share {
@@ -481,8 +507,9 @@
             }
             .product-actions {
                 flex-direction: column;
+                gap: 15px;
             }
-            .btn-add-cart {
+            .btn-add-cart, .btn-buy-now {
                 flex: 1;
             }
         }
@@ -559,6 +586,10 @@
                     <button class="btn-add-cart" onclick="addToCart()">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Add to Cart</span>
+                    </button>
+                    <button class="btn-buy-now" onclick="buyNow()">
+                        <i class="fas fa-bolt"></i>
+                        <span>Buy Now</span>
                     </button>
                     <button class="btn-wishlist" onclick="addToWishlist()" title="Add to Wishlist">
                         <i class="fas fa-heart"></i>
@@ -806,6 +837,21 @@
                 btn.innerHTML = originalText;
                 btn.style.background = 'linear-gradient(135deg, #C6A664, #D4AF37)';
             }, 2000);
+        }
+
+        function buyNow() {
+            if (!currentProduct) return;
+            
+            const buyNowItem = {
+                id: currentProduct._id,
+                name: currentProduct.name,
+                price: currentProduct.price,
+                image: currentProduct.image,
+                quantity: quantity
+            };
+            
+            sessionStorage.setItem('buyNowItem', JSON.stringify(buyNowItem));
+            window.location.href = 'checkout.html?buynow=true';
         }
 
         function addToWishlist() {
