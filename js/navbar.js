@@ -2,23 +2,6 @@
 
 function loadNavbar() {
     const navbar = `
-        <div class="top-bar">
-            <div class="container">
-                <div class="top-bar-left">
-                    <span class="promo-text">🎉 Grand Opening Sale - Up to 50% OFF!</span>
-                </div>
-                <div class="top-bar-right">
-                    <a href="tel:+923110849559" class="contact-link">
-                        <i class="fas fa-phone"></i> +92 311 084 9559
-                    </a>
-                    <span class="divider">|</span>
-                    <a href="mailto:support@mfproduction.com" class="contact-link">
-                        <i class="fas fa-envelope"></i> support@mfproduction.com
-                    </a>
-                </div>
-            </div>
-        </div>
-
         <nav class="navbar" id="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
