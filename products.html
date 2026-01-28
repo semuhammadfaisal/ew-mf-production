@@ -172,7 +172,7 @@
         // Filter functionality
         let allProducts = [];
         let filteredProducts = [];
-        let currentView = 'grid';
+        let currentView = window.innerWidth <= 768 ? 'list' : 'grid'; // Default to list on mobile
 
         // Load products and setup filters
         async function loadProductsWithFilters() {
@@ -353,6 +353,10 @@
         }
 
         function setupFilterListeners() {
+            // Set initial view button state based on screen size
+            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`[data-view="${currentView}"]`).classList.add('active');
+            
             // Category filter dropdown
             const categoryFilter = document.getElementById('categoryFilter');
             if (categoryFilter) {
