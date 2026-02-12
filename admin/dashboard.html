@@ -578,6 +578,24 @@
                                     </div>
                                     <small style="color: #666; margin-top: 10px; font-size: 12px; display: block;">💡 Tip: Use high-quality images (recommended: 800x800px). Additional images will show in product gallery.</small>
                                 </div>
+                                <div class="form-group" style="grid-column: 1 / -1;">
+                                    <label style="font-weight: 600; color: #333; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><i class="fas fa-file-image" style="color: #C6A664;"></i> Description Images (3 images)</label>
+                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                                        <div>
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Description Image 1</label>
+                                            <input type="url" id="descImage1" placeholder="https://example.com/desc-1.jpg" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; transition: all 0.3s ease; background: #f8f9fa;" onfocus="this.style.borderColor='#C6A664'; this.style.background='white';" onblur="this.style.borderColor='#e1e5e9'; this.style.background='#f8f9fa';">
+                                        </div>
+                                        <div>
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Description Image 2</label>
+                                            <input type="url" id="descImage2" placeholder="https://example.com/desc-2.jpg" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; transition: all 0.3s ease; background: #f8f9fa;" onfocus="this.style.borderColor='#C6A664'; this.style.background='white';" onblur="this.style.borderColor='#e1e5e9'; this.style.background='#f8f9fa';">
+                                        </div>
+                                        <div>
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Description Image 3</label>
+                                            <input type="url" id="descImage3" placeholder="https://example.com/desc-3.jpg" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; transition: all 0.3s ease; background: #f8f9fa;" onfocus="this.style.borderColor='#C6A664'; this.style.background='white';" onblur="this.style.borderColor='#e1e5e9'; this.style.background='#f8f9fa';">
+                                        </div>
+                                    </div>
+                                    <small style="color: #666; margin-top: 10px; font-size: 12px; display: block;">💡 These images will appear in the product description section.</small>
+                                </div>
                                 <div class="form-group" style="display: flex; flex-direction: column; gap: 15px;">
                                     <label style="font-weight: 600; color: #333; margin-bottom: 5px;">Product Badges</label>
                                     <label style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8f9fa; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e9ecef'" onmouseout="this.style.background='#f8f9fa'">
@@ -650,6 +668,16 @@
             if (img3) images.push(img3);
             if (img4) images.push(img4);
             
+            // Add description images
+            const descriptionImages = [];
+            const desc1 = document.getElementById('descImage1').value.trim();
+            const desc2 = document.getElementById('descImage2').value.trim();
+            const desc3 = document.getElementById('descImage3').value.trim();
+            
+            if (desc1) descriptionImages.push(desc1);
+            if (desc2) descriptionImages.push(desc2);
+            if (desc3) descriptionImages.push(desc3);
+            
             console.log('Images array being sent:', images);
             
             const productData = {
@@ -661,6 +689,7 @@
                 description: document.getElementById('productDescription').value,
                 image: mainImage,
                 images: images,
+                descriptionImages: descriptionImages,
                 bestseller: document.getElementById('productBestseller').checked,
                 new: document.getElementById('productNew').checked,
                 rating: 4.0,
@@ -1457,10 +1486,7 @@
             }
         }
         
-        function editProduct(productId) {
-            alert('Edit functionality coming soon!');
-            // TODO: Implement edit product modal
-        }
+
         
         // Initialize dashboard
         loadDashboardFromAPI();

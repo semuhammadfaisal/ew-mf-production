@@ -98,10 +98,6 @@ function loadNavbar() {
                             <span class="icon-count" id="cartCount">0</span>
                         </a>
                     </div>
-
-                    <div class="mobile-menu-toggle" onclick="toggleMobileMenu()" id="mobileToggle">
-                        <i class="fas fa-bars"></i>
-                    </div>
                 </div>
             </div>
         </nav>

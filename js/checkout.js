@@ -9,8 +9,14 @@ async function submitOrder() {
     }
     const formData = new FormData(form);
     
-    // Get cart items
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    // Get cart items - check both regular cart and buy now item
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const buyNowItem = sessionStorage.getItem('buyNowItem');
+    
+    if (buyNowItem) {
+        cart = [JSON.parse(buyNowItem)];
+    }
+    
     if (cart.length === 0) {
         showNotification('Your cart is empty', 'error');
         return;
@@ -58,21 +64,15 @@ async function submitOrder() {
         }
         
         // Submit order
-        console.log('Calling API.createOrder...');
         const response = await API.createOrder(orderData);
-        console.log('API response:', response);
         
-        // Clear cart
+        // Clear cart and buy now item
         localStorage.removeItem('cart');
+        sessionStorage.removeItem('buyNowItem');
         
-        // Show success message
-        showNotification('Order placed successfully!', 'success');
-        
-        // Show success and redirect
-        setTimeout(() => {
-            alert(`Order placed successfully!\nOrder Number: ${response.orderNumber}\nThank you for shopping with MF Production!`);
-            window.location.href = 'index.html';
-        }, 2000);
+        // Show success and redirect immediately
+        alert(`Order placed successfully!\nOrder Number: ${response.orderNumber}\nThank you for shopping with MF Production!`);
+        window.location.href = 'index.html';
         
     } catch (error) {
         console.error('Error submitting order:', error);
@@ -198,7 +198,13 @@ function displayCheckoutItems() {
     const container = document.getElementById('checkout-items-container');
     if (!container) return;
     
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    // Check both regular cart and buy now item
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const buyNowItem = sessionStorage.getItem('buyNowItem');
+    
+    if (buyNowItem) {
+        cart = [JSON.parse(buyNowItem)];
+    }
     
     if (cart.length === 0) {
         container.innerHTML = `
