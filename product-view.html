@@ -50,7 +50,7 @@
         .product-detail-container { display: grid; grid-template-columns: 55% 45%; gap: 80px; padding: 60px 0; max-width: 1400px; margin: 0 auto; padding-left: 40px; padding-right: 40px; }
         
         /* Gallery */
-        .product-gallery { position: sticky; top: 40px; height: fit-content; }
+        .product-gallery { position: sticky; top: 100px; height: fit-content; max-height: calc(100vh - 120px); }
         .main-image { width: 100%; aspect-ratio: 1; border-radius: 20px; overflow: hidden; margin-bottom: 20px; background: #f9f9f9; box-shadow: 0 10px 40px rgba(0,0,0,0.08); position: relative; }
         .main-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .main-image:hover img { transform: scale(1.08); }
@@ -69,7 +69,7 @@
         /* Product Info */
         .product-info { padding: 20px 0; }
         .product-category { display: inline-block; background: transparent; color: var(--gold); padding: 0; font-size: 11px; font-weight: 600; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
-        .product-title { font-size: 42px; font-weight: 300; margin-bottom: 20px; line-height: 1.2; color: var(--dark); letter-spacing: -0.5px; }
+        .product-title { font-size: 42px; font-weight: 700; margin-bottom: 20px; line-height: 1.2; color: var(--dark); letter-spacing: -0.5px; }
         .product-rating { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #f0f0f0; }
         .stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
         .rating-text { font-weight: 600; font-size: 15px; color: var(--dark); }
@@ -80,23 +80,23 @@
         
         /* Price */
         .product-price { margin-bottom: 35px; }
-        .price-container { display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; }
-        .current-price { font-size: 38px; font-weight: 300; color: var(--dark); letter-spacing: -1px; }
+        .price-container { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .current-price { font-size: 38px; font-weight: 700; color: var(--gold); letter-spacing: -1px; }
         .original-price { font-size: 22px; color: #ccc; text-decoration: line-through; position: relative; }
         .original-price::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #ccc; }
         .discount-badge { background: linear-gradient(135deg, var(--gold), #D4AF37); color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; box-shadow: 0 2px 10px rgba(198,166,100,0.3); }
         .price-note { font-size: 12px; color: #999; margin-top: 10px; font-style: italic; }
         
         /* Quantity */
-        .quantity-section { margin-bottom: 35px; background: rgba(198,166,100,0.03); padding: 25px; border-radius: 15px; border: 1px solid rgba(198,166,100,0.1); }
-        .quantity-label { font-weight: 500; margin-bottom: 15px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--dark); }
-        .quantity-controls { display: flex; align-items: center; gap: 20px; }
+        .quantity-section { margin-bottom: 20px; background: rgba(198,166,100,0.03); padding: 10px 15px; border-radius: 10px; border: 1px solid rgba(198,166,100,0.1); }
+        .quantity-label { font-weight: 500; margin-bottom: 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--dark); }
+        .quantity-controls { display: flex; align-items: center; gap: 12px; }
         .quantity-input { display: flex; align-items: center; border: 1px solid #e0e0e0; border-radius: 50px; overflow: hidden; background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-        .qty-btn { width: 45px; height: 45px; border: none; background: transparent; cursor: pointer; font-size: 18px; font-weight: 300; color: var(--dark); transition: all 0.3s; }
+        .qty-btn { width: 30px; height: 30px; border: none; background: transparent; cursor: pointer; font-size: 14px; font-weight: 300; color: var(--dark); transition: all 0.3s; }
         .qty-btn:hover { background: var(--gold); color: white; }
-        .qty-value { width: 60px; height: 45px; border: none; text-align: center; font-size: 15px; font-weight: 500; background: transparent; }
-        .stock-info { color: #6b9b6e; font-weight: 500; font-size: 13px; display: flex; align-items: center; gap: 6px; background: rgba(107,155,110,0.1); padding: 8px 16px; border-radius: 20px; }
-        .stock-info i { font-size: 12px; }
+        .qty-value { width: 40px; height: 30px; border: none; text-align: center; font-size: 13px; font-weight: 500; background: transparent; }
+        .stock-info { color: #6b9b6e; font-weight: 500; font-size: 10px; display: flex; align-items: center; gap: 4px; background: rgba(107,155,110,0.1); padding: 5px 10px; border-radius: 20px; }
+        .stock-info i { font-size: 9px; }
         
         /* Related Products */
         .related-products { background: var(--bg); padding: 80px 0; }
@@ -110,6 +110,7 @@
             .product-title { font-size: 36px; }
             .current-price { font-size: 34px; }
             .related-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            #descriptionSections > div { grid-template-columns: 1fr 1fr !important; gap: 35px !important; padding: 35px !important; }
         }
         
         @media (max-width: 1024px) {
@@ -121,6 +122,7 @@
             .related-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .related-products { padding: 60px 0; }
             .related-title { font-size: 28px; }
+            #descriptionSections > div { grid-template-columns: 1fr !important; gap: 25px !important; padding: 30px !important; }
         }
         
         @media (max-width: 768px) {
@@ -157,6 +159,11 @@
             .action-secondary i { font-size: 20px !important; }
             .desc-images { grid-template-columns: 1fr !important; gap: 12px !important; margin-bottom: 30px !important; }
             .product-meta { grid-template-columns: 1fr !important; gap: 15px !important; padding: 20px 0 !important; }
+            #descriptionSections > div { grid-template-columns: 1fr !important; gap: 20px !important; padding: 25px 20px !important; margin-bottom: 30px !important; }
+            #descriptionSections img { aspect-ratio: 16/9 !important; }
+            #descriptionSections > div > div:first-child { order: 1; }
+            #descriptionSections > div > div:last-child { order: 2; }
+            .desc-sections-container { margin-top: 40px !important; }
             .reviews-section { margin-top: 60px !important; margin-bottom: 60px !important; }
             .reviews-section h3 { font-size: 24px !important; margin-bottom: 40px !important; }
             .review-form-container { padding: 25px !important; border-radius: 15px !important; margin-bottom: 40px !important; }
@@ -223,19 +230,12 @@
                     <span class="review-count">(<span id="productReviews">0</span> reviews)</span>
                 </div>
                 
-                <div class="trust-badges">
-                    <div class="trust-badge"><i class="fas fa-shield-alt"></i> Secure Payment</div>
-                    <div class="trust-badge"><i class="fas fa-truck"></i> Free Shipping</div>
-                    <div class="trust-badge"><i class="fas fa-undo"></i> Easy Returns</div>
-                </div>
-                
                 <div class="product-price">
                     <div class="price-container">
                         <span class="current-price" id="productPrice">Rs. 0</span>
                         <span class="original-price" id="productOriginalPrice" style="display: none;"></span>
                         <span class="discount-badge" id="discountBadge" style="display: none;"></span>
                     </div>
-                    <div class="price-note">Tax included. Shipping calculated at checkout.</div>
                 </div>
                 
                 <div class="quantity-section">
@@ -253,13 +253,19 @@
                     </div>
                 </div>
                 
-                <div style="display: flex; gap: 15px; margin-bottom: 50px; flex-wrap: wrap;">
+                <div style="display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
                     <button onclick="addToCart()" class="btn-add-cart" style="flex: 1; min-width: 200px; padding: 18px 40px; background: var(--dark); color: white; border: none; border-radius: 50px; font-size: 14px; font-weight: 500; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.4s ease; position: relative; overflow: hidden;" onmouseover="this.style.background='var(--gold)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(198,166,100,0.3)';" onmouseout="this.style.background='var(--dark)'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                         <span style="position: relative; z-index: 1;">Add to Cart</span>
                     </button>
                     <button onclick="buyNow()" class="btn-buy-now" style="flex: 1; min-width: 200px; padding: 18px 40px; background: var(--gold); color: white; border: none; border-radius: 50px; font-size: 14px; font-weight: 500; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.4s ease; position: relative; overflow: hidden;" onmouseover="this.style.background='#D4AF37'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(198,166,100,0.4)';" onmouseout="this.style.background='var(--gold)'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                         <span style="position: relative; z-index: 1;">Buy Now</span>
                     </button>
+                </div>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge"><i class="fas fa-shield-alt"></i> Secure Payment</div>
+                    <div class="trust-badge"><i class="fas fa-truck"></i> Free Shipping</div>
+                    <div class="trust-badge"><i class="fas fa-undo"></i> Easy Returns</div>
                 </div>
                 
                 <div class="action-secondary" style="display: flex; gap: 25px; padding: 25px 0; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; margin-bottom: 40px;">
@@ -274,11 +280,8 @@
                 <!-- Product Description -->
                 <div style="margin-bottom: 40px;">
                     <h3 style="font-size: 13px; font-weight: 500; color: var(--dark); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 10px;"><span style="width: 30px; height: 1px; background: var(--gold);"></span> Description</h3>
-                    <div id="productDescription" style="font-size: 15px; line-height: 1.9; color: var(--text); font-weight: 300;">Loading product details...</div>
+                    <div id="productDescription" style="font-size: 15px; line-height: 1.9; color: var(--text); font-weight: 300; white-space: pre-line;">Loading product details...</div>
                 </div>
-                
-                <!-- Description Images -->
-                <div id="descriptionImages" class="desc-images" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 40px;"></div>
                 
                 <!-- Product Meta -->
                 <div class="product-meta" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 30px 0; border-top: 1px solid #f0f0f0;">
@@ -292,6 +295,15 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Description Sections (Full Width) -->
+        <div class="container desc-sections-container" style="margin-top: 250px; margin-bottom: 80px;">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 32px; font-weight: 300; color: var(--dark); letter-spacing: -0.5px; margin-bottom: 10px;">Product Features</h2>
+                <div style="width: 60px; height: 2px; background: var(--gold); margin: 0 auto;"></div>
+            </div>
+            <div id="descriptionSections"></div>
         </div>
         
         <!-- Reviews Section -->
@@ -429,17 +441,39 @@
                 }
             }
             
-            document.getElementById('productDescription').textContent = product.description;
+            document.getElementById('productDescription').innerHTML = product.description;
             document.getElementById('productStock').textContent = product.stock || 10;
             
-            // Display description images
-            const descImagesContainer = document.getElementById('descriptionImages');
-            if (product.descriptionImages && product.descriptionImages.length > 0) {
-                descImagesContainer.innerHTML = product.descriptionImages.map(img => `
-                    <div style="border-radius: 15px; overflow: hidden; aspect-ratio: 1; background: #f9f9f9;">
-                        <img src="${img}" alt="Product detail" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onerror="this.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';">
-                    </div>
-                `).join('');
+            // Display description sections with alternating layout
+            const descSectionsContainer = document.getElementById('descriptionSections');
+            console.log('Product data:', product);
+            console.log('Product descriptionSections:', product.descriptionSections);
+            
+            if (product.descriptionSections && product.descriptionSections.length > 0) {
+                console.log('Rendering', product.descriptionSections.length, 'description sections');
+                descSectionsContainer.innerHTML = product.descriptionSections.map((section, index) => {
+                    const isLeft = index % 2 === 0;
+                    console.log(`Section ${index + 1}:`, section);
+                    return `
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 50px; background: linear-gradient(135deg, rgba(198,166,100,0.02), rgba(198,166,100,0.05)); padding: 40px; border-radius: 20px; border: 1px solid rgba(198,166,100,0.1); box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 10px 30px rgba(0,0,0,0.08)'; this.style.transform='translateY(-3px)';" onmouseout="this.style.boxShadow='0 5px 20px rgba(0,0,0,0.03)'; this.style.transform='translateY(0)';">
+                            ${isLeft ? `
+                                <div style="border-radius: 15px; overflow: hidden; aspect-ratio: 1; background: #f9f9f9; box-shadow: 0 8px 25px rgba(0,0,0,0.1); position: relative;">
+                                    <img src="${section.image}" alt="Description ${index + 1}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                                    <div style="position: absolute; top: 15px; left: 15px; background: rgba(198,166,100,0.9); color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 1px; backdrop-filter: blur(10px);">FEATURE ${index + 1}</div>
+                                </div>
+                                <div style="font-size: 15px; line-height: 1.9; color: var(--text); padding: 20px; font-weight: 300; white-space: pre-line;">${section.text}</div>
+                            ` : `
+                                <div style="font-size: 15px; line-height: 1.9; color: var(--text); padding: 20px; font-weight: 300; white-space: pre-line;">${section.text}</div>
+                                <div style="border-radius: 15px; overflow: hidden; aspect-ratio: 1; background: #f9f9f9; box-shadow: 0 8px 25px rgba(0,0,0,0.1); position: relative;">
+                                    <img src="${section.image}" alt="Description ${index + 1}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                                    <div style="position: absolute; top: 15px; left: 15px; background: rgba(198,166,100,0.9); color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 1px; backdrop-filter: blur(10px);">FEATURE ${index + 1}</div>
+                                </div>
+                            `}
+                        </div>
+                    `;
+                }).join('');
+            } else {
+                console.log('No description sections found');
             }
             
             document.title = `${product.name} - MF Production`;

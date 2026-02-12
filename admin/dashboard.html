@@ -596,6 +596,30 @@
                                     </div>
                                     <small style="color: #666; margin-top: 10px; font-size: 12px; display: block;">💡 These images will appear in the product description section.</small>
                                 </div>
+                                <div class="form-group" style="grid-column: 1 / -1;">
+                                    <label style="font-weight: 600; color: #333; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><i class="fas fa-align-left" style="color: #C6A664;"></i> Description Sections (Image + Text)</label>
+                                    <div style="display: grid; gap: 20px;">
+                                        <div style="padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 1 Image URL</label>
+                                            <input type="url" id="descSection1Image" placeholder="https://example.com/section-1.jpg" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; margin-bottom: 10px;">
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 1 Text</label>
+                                            <textarea id="descSection1Text" rows="3" placeholder="Description text for section 1..." style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; resize: vertical; font-family: inherit;"></textarea>
+                                        </div>
+                                        <div style="padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 2 Image URL</label>
+                                            <input type="url" id="descSection2Image" placeholder="https://example.com/section-2.jpg" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; margin-bottom: 10px;">
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 2 Text</label>
+                                            <textarea id="descSection2Text" rows="3" placeholder="Description text for section 2..." style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; resize: vertical; font-family: inherit;"></textarea>
+                                        </div>
+                                        <div style="padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 3 Image URL</label>
+                                            <input type="url" id="descSection3Image" placeholder="https://example.com/section-3.jpg" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; margin-bottom: 10px;">
+                                            <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 3 Text</label>
+                                            <textarea id="descSection3Text" rows="3" placeholder="Description text for section 3..." style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; resize: vertical; font-family: inherit;"></textarea>
+                                        </div>
+                                    </div>
+                                    <small style="color: #666; margin-top: 10px; font-size: 12px; display: block;">💡 These will display as alternating image-text sections in product view.</small>
+                                </div>
                                 <div class="form-group" style="display: flex; flex-direction: column; gap: 15px;">
                                     <label style="font-weight: 600; color: #333; margin-bottom: 5px;">Product Badges</label>
                                     <label style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8f9fa; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e9ecef'" onmouseout="this.style.background='#f8f9fa'">
@@ -678,6 +702,19 @@
             if (desc2) descriptionImages.push(desc2);
             if (desc3) descriptionImages.push(desc3);
             
+            // Add description sections
+            const descriptionSections = [];
+            const section1Image = document.getElementById('descSection1Image').value.trim();
+            const section1Text = document.getElementById('descSection1Text').value.trim();
+            const section2Image = document.getElementById('descSection2Image').value.trim();
+            const section2Text = document.getElementById('descSection2Text').value.trim();
+            const section3Image = document.getElementById('descSection3Image').value.trim();
+            const section3Text = document.getElementById('descSection3Text').value.trim();
+            
+            if (section1Image && section1Text) descriptionSections.push({ image: section1Image, text: section1Text });
+            if (section2Image && section2Text) descriptionSections.push({ image: section2Image, text: section2Text });
+            if (section3Image && section3Text) descriptionSections.push({ image: section3Image, text: section3Text });
+            
             console.log('Images array being sent:', images);
             
             const productData = {
@@ -690,6 +727,7 @@
                 image: mainImage,
                 images: images,
                 descriptionImages: descriptionImages,
+                descriptionSections: descriptionSections,
                 bestseller: document.getElementById('productBestseller').checked,
                 new: document.getElementById('productNew').checked,
                 rating: 4.0,

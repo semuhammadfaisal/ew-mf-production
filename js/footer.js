@@ -8,7 +8,7 @@ function loadFooter() {
                     <div class="footer-section">
                         <div class="footer-logo">
                             <img src="assets/images/mf_production_logo.png" alt="MF Production" class="footer-logo-image">
-                            <p>Your trusted destination for premium electronics, fashion & fragrances in Pakistan.</p>
+                            <p>Your trusted destination for premium electronics, fashion & fragrances.</p>
                         </div>
                         <div class="footer-social">
                             <a href="https://www.facebook.com/profile.php?id=100090394263406"><i class="fab fa-facebook"></i></a>

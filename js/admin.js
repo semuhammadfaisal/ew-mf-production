@@ -131,22 +131,28 @@ function openEditProductModal(product) {
                             <small style="color: #666; margin-top: 10px; font-size: 12px; display: block;">💡 Tip: Use high-quality images (recommended: 800x800px). Additional images will show in product gallery.</small>
                         </div>
                         <div class="form-group" style="grid-column: 1 / -1;">
-                            <label style="font-weight: 600; color: #333; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><i class="fas fa-file-image" style="color: #C6A664;"></i> Description Images (3 images)</label>
-                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-                                <div>
-                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Description Image 1</label>
-                                    <input type="url" id="editDescImage1" placeholder="https://example.com/desc-1.jpg" value="${product.descriptionImages && product.descriptionImages[0] ? product.descriptionImages[0] : ''}" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; transition: all 0.3s ease; background: #f8f9fa;" onfocus="this.style.borderColor='#C6A664'; this.style.background='white';" onblur="this.style.borderColor='#e1e5e9'; this.style.background='#f8f9fa';">
+                            <label style="font-weight: 600; color: #333; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><i class="fas fa-align-left" style="color: #C6A664;"></i> Description Sections (Image + Text)</label>
+                            <div style="display: grid; gap: 20px;">
+                                <div style="padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 1 Image URL</label>
+                                    <input type="url" id="editDescSection1Image" placeholder="https://example.com/section-1.jpg" value="${product.descriptionSections && product.descriptionSections[0] ? product.descriptionSections[0].image : ''}" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; margin-bottom: 10px;">
+                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 1 Text</label>
+                                    <textarea id="editDescSection1Text" rows="3" placeholder="Description text for section 1..." style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; resize: vertical; font-family: inherit;">${product.descriptionSections && product.descriptionSections[0] ? product.descriptionSections[0].text : ''}</textarea>
                                 </div>
-                                <div>
-                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Description Image 2</label>
-                                    <input type="url" id="editDescImage2" placeholder="https://example.com/desc-2.jpg" value="${product.descriptionImages && product.descriptionImages[1] ? product.descriptionImages[1] : ''}" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; transition: all 0.3s ease; background: #f8f9fa;" onfocus="this.style.borderColor='#C6A664'; this.style.background='white';" onblur="this.style.borderColor='#e1e5e9'; this.style.background='#f8f9fa';">
+                                <div style="padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 2 Image URL</label>
+                                    <input type="url" id="editDescSection2Image" placeholder="https://example.com/section-2.jpg" value="${product.descriptionSections && product.descriptionSections[1] ? product.descriptionSections[1].image : ''}" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; margin-bottom: 10px;">
+                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 2 Text</label>
+                                    <textarea id="editDescSection2Text" rows="3" placeholder="Description text for section 2..." style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; resize: vertical; font-family: inherit;">${product.descriptionSections && product.descriptionSections[1] ? product.descriptionSections[1].text : ''}</textarea>
                                 </div>
-                                <div>
-                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Description Image 3</label>
-                                    <input type="url" id="editDescImage3" placeholder="https://example.com/desc-3.jpg" value="${product.descriptionImages && product.descriptionImages[2] ? product.descriptionImages[2] : ''}" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; transition: all 0.3s ease; background: #f8f9fa;" onfocus="this.style.borderColor='#C6A664'; this.style.background='white';" onblur="this.style.borderColor='#e1e5e9'; this.style.background='#f8f9fa';">
+                                <div style="padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 3 Image URL</label>
+                                    <input type="url" id="editDescSection3Image" placeholder="https://example.com/section-3.jpg" value="${product.descriptionSections && product.descriptionSections[2] ? product.descriptionSections[2].image : ''}" style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; margin-bottom: 10px;">
+                                    <label style="font-size: 14px; font-weight: 500; color: #555; margin-bottom: 5px; display: block;">Section 3 Text</label>
+                                    <textarea id="editDescSection3Text" rows="3" placeholder="Description text for section 3..." style="width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-size: 14px; resize: vertical; font-family: inherit;">${product.descriptionSections && product.descriptionSections[2] ? product.descriptionSections[2].text : ''}</textarea>
                                 </div>
                             </div>
-                            <small style="color: #666; margin-top: 10px; font-size: 12px; display: block;">💡 These images will appear in the product description section.</small>
+                            <small style="color: #666; margin-top: 10px; font-size: 12px; display: block;">💡 These will display as alternating image-text sections in product view.</small>
                         </div>
                         <div class="form-group" style="display: flex; flex-direction: column; gap: 15px;">
                             <label style="font-weight: 600; color: #333; margin-bottom: 5px;">Product Badges</label>
@@ -221,14 +227,17 @@ async function handleEditProduct(e) {
     if (img3) images.push(img3);
     if (img4) images.push(img4);
     
-    const descriptionImages = [];
-    const desc1 = document.getElementById('editDescImage1').value.trim();
-    const desc2 = document.getElementById('editDescImage2').value.trim();
-    const desc3 = document.getElementById('editDescImage3').value.trim();
+    const descriptionSections = [];
+    const section1Image = document.getElementById('editDescSection1Image').value.trim();
+    const section1Text = document.getElementById('editDescSection1Text').value.trim();
+    const section2Image = document.getElementById('editDescSection2Image').value.trim();
+    const section2Text = document.getElementById('editDescSection2Text').value.trim();
+    const section3Image = document.getElementById('editDescSection3Image').value.trim();
+    const section3Text = document.getElementById('editDescSection3Text').value.trim();
     
-    if (desc1) descriptionImages.push(desc1);
-    if (desc2) descriptionImages.push(desc2);
-    if (desc3) descriptionImages.push(desc3);
+    if (section1Image && section1Text) descriptionSections.push({ image: section1Image, text: section1Text });
+    if (section2Image && section2Text) descriptionSections.push({ image: section2Image, text: section2Text });
+    if (section3Image && section3Text) descriptionSections.push({ image: section3Image, text: section3Text });
     
     const productData = {
         name: document.getElementById('editProductName').value,
@@ -239,7 +248,7 @@ async function handleEditProduct(e) {
         description: document.getElementById('editProductDescription').value,
         image: mainImage,
         images: images,
-        descriptionImages: descriptionImages,
+        descriptionSections: descriptionSections,
         bestseller: document.getElementById('editProductBestseller').checked,
         new: document.getElementById('editProductNew').checked
     };

@@ -48,6 +48,7 @@ router.post('/products', async (req, res) => {
       category: req.body.category || 'electronics',
       image: req.body.image || 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500',
       images: req.body.images || [req.body.image || 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500'],
+      descriptionSections: req.body.descriptionSections || [],
       stock: parseInt(req.body.stock) || 10,
       rating: 0,
       reviews: 0,

@@ -36,6 +36,13 @@ const productSchema = new mongoose.Schema({
     type: [String],
     default: []
   },
+  descriptionSections: {
+    type: [{
+      image: String,
+      text: String
+    }],
+    default: []
+  },
   stock: {
     type: Number,
     required: true,
