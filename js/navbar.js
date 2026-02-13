@@ -5,8 +5,7 @@ function loadNavbar() {
         <nav class="navbar" id="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="assets/images/mf_production_logo.png" alt="MF Production" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-fallback" style="display:none; font-size:24px; font-weight:700; color:var(--primary-600);">MF</span>
+                    <img src="assets/images/logo.svg" alt="MF Production" class="logo-image" onerror="this.src='assets/images/mf_production_logo.png'">
                 </a>
 
                 <div class="nav-center">
