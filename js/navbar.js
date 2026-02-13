@@ -5,7 +5,7 @@ function loadNavbar() {
         <nav class="navbar" id="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="assets/images/logo.svg" alt="MF Production" class="logo-image" onerror="this.src='assets/images/mf_production_logo.png'">
+                    <img src="assets/images/mf_production_logo.png" alt="MF Production" class="logo-image">
                 </a>
 
                 <div class="nav-center">
