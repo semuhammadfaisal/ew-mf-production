@@ -2,9 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const http = require('http');
+const socketIo = require('socket.io');
 require('dotenv').config();
 
 const app = express();
+const server = http.createServer(app);
+const io = socketIo(server, { cors: { origin: '*' } });
+
+let activeUsers = 0;
 
 // Middleware
 app.use(cors());
@@ -83,6 +89,24 @@ app.get('/assets/*', (req, res) => {
   res.sendFile(path.join(__dirname, req.path));
 });
 
+// Socket.IO for user tracking
+io.on('connection', (socket) => {
+  activeUsers++;
+  console.log(`User connected. Total users: ${activeUsers}`);
+  io.emit('userCount', activeUsers);
+  
+  socket.on('disconnect', () => {
+    activeUsers--;
+    console.log(`User disconnected. Total users: ${activeUsers}`);
+    io.emit('userCount', activeUsers);
+  });
+});
+
+// API endpoint for active users
+app.get('/api/active-users', (req, res) => {
+  res.json({ count: activeUsers });
+});
+
 // Export for Vercel
 module.exports = app;
 
@@ -90,7 +114,7 @@ const PORT = process.env.PORT || 3000;
 
 // Only start server if not in Vercel environment
 if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-  const server = app.listen(PORT, () => {
+  server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   }).on('error', (err) => {
     if (err.code === 'EADDRINUSE') {
@@ -106,16 +130,20 @@ if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
 // Graceful shutdown
 process.on('SIGTERM', () => {
   console.log('SIGTERM received, shutting down gracefully');
-  server.close(() => {
-    mongoose.connection.close();
-    process.exit(0);
-  });
+  if (server) {
+    server.close(() => {
+      mongoose.connection.close();
+      process.exit(0);
+    });
+  }
 });
 
 process.on('SIGINT', () => {
   console.log('SIGINT received, shutting down gracefully');
-  server.close(() => {
-    mongoose.connection.close();
-    process.exit(0);
-  });
+  if (server) {
+    server.close(() => {
+      mongoose.connection.close();
+      process.exit(0);
+    });
+  }
 });
